@@ -8,30 +8,6 @@ As you will see in the resalst below some results a quite different
 ## Results
 ```
 $ ruby -v code/general/array-argument-vs-splat-arguments.rb
-truffleruby 20.3.0-dev-d1ce9c0d, like ruby 2.6.6, GraalVM CE Native [x86_64-darwin]
-Warming up --------------------------------------
-Function with single Array argument
-                       206.043M i/100ms
-Function with splat arguments
-                         1.415k i/100ms
-Calculating -------------------------------------
-Function with single Array argument
-                          2.030B (± 3.0%) i/s -     10.302B in   5.080295s
-Function with splat arguments
-                         14.095k (± 4.5%) i/s -     70.750k in   5.030158s
-
-Comparison:
-Function with single Array argument: 2029787512.0 i/s
-Function with splat arguments:    14094.7 i/s - 144011.14x  (± 0.00) slower
-
-$ ruby -v code/general/assignment.rb
-truffleruby 20.3.0-dev-d1ce9c0d, like ruby 2.6.6, GraalVM CE Native [x86_64-darwin]
-Warming up --------------------------------------
- Parallel Assignment   199.503M i/100ms
-Sequential Assignment
-                       206.546M i/100ms
-Calculating -------------------------------------
-$ ruby -v code/general/array-argument-vs-splat-arguments.rb
 truffleruby 20.3.0-dev-1fb68a0e, like ruby 2.6.6, GraalVM CE Native [x86_64-darwin]
 Warming up --------------------------------------
 Function with single Array argument
@@ -982,72 +958,6 @@ Calculating -------------------------------------
 Comparison:
         Time.iso8601:   325751.0 i/s
           Time.parse:    42032.0 i/s - 7.75x  (± 0.00) slower
-
-
-
-
-$ ruby -v code/general/array-argument-vs-splat-arguments.rb
-$ ruby -v code/general/assignment.rb
-$ ruby -v code/general/attr-accessor-vs-getter-and-setter.rb
-$ ruby -v code/general/begin-rescue-vs-respond-to.rb
-$ ruby -v code/general/block-apply-method.rb
-$ ruby -v code/general/define_method-vs-module-eval.rb
-$ ruby -v code/general/format-vs-round-and-to-s.rb
-$ ruby -v code/general/hash-vs-openstruct-on-access.rb
-$ ruby -v code/general/hash-vs-openstruct.rb
-$ ruby -v code/general/inheritance-check.rb
-$ ruby -v code/general/loop-vs-while-true.rb
-$ ruby -v code/general/raise-vs-e2mmap.rb
-$ ruby -v code/array/array-first-vs-index.rb
-$ ruby -v code/array/array-last-vs-index.rb
-$ ruby -v code/array/bsearch-vs-find.rb
-$ ruby -v code/array/insert-vs-unshift.rb
-$ ruby -v code/array/length-vs-size-vs-count.rb
-$ ruby -v code/array/shuffle-first-vs-sample.rb
-$ ruby -v code/date/iso8601-vs-parse.rb
-$ ruby -v code/enumerable/each-push-vs-map.rb
-$ ruby -v code/enumerable/each-vs-for-loop.rb
-$ ruby -v code/enumerable/each_with_index-vs-while-loop.rb
-$ ruby -v code/enumerable/inject-symbol-vs-block.rb
-$ ruby -v code/enumerable/map-flatten-vs-flat_map.rb
-$ ruby -v code/enumerable/reverse-each-vs-reverse_each.rb
-$ ruby -v code/enumerable/select-first-vs-detect.rb
-$ ruby -v code/enumerable/select-last-vs-reverse-detect.rb
-$ ruby -v code/enumerable/sort-vs-sort_by.rb
-$ ruby -v code/enumerable/sort_by-first-vs-min_by.rb
-$ ruby -v code/hash/bracket-vs-dup.rb
-$ ruby -v code/hash/bracket-vs-fetch.rb
-$ ruby -v code/hash/dig-vs-[]-vs-fetch.rb
-$ ruby -v code/hash/fetch-vs-fetch-with-block.rb
-$ ruby -v code/hash/hash-key-sort_by-vs-sort.rb
-$ ruby -v code/hash/keys-each-vs-each_key.rb
-$ ruby -v code/hash/keys-include-vs-key.rb
-$ ruby -v code/hash/merge-bang-vs-[]=.rb
-$ ruby -v code/hash/merge-bang-vs-merge-vs-dup-merge-bang.rb
-$ ruby -v code/hash/merge-vs-double-splat-operator.rb
-$ ruby -v code/hash/merge-vs-merge-bang.rb
-$ ruby -v code/hash/slice-native-vs-before-native.rb
-$ ruby -v code/hash/values-include-vs-value.rb
-$ ruby -v code/method/call-vs-send-vs-method_missing.rb
-$ ruby -v code/proc-and-block/block-vs-to_proc.rb
-$ ruby -v code/proc-and-block/proc-call-vs-yield.rb
-$ ruby -v code/range/cover-vs-include.rb
-$ ruby -v code/string/===-vs-=~-vs-match.rb
-$ ruby -v code/string/casecmp-vs-downcase-==.rb
-$ ruby -v code/string/concatenation.rb
-$ ruby -v code/string/dup-vs-unary-plus.rb
-$ ruby -v code/string/end-string-checking-match-vs-end_with.rb
-$ ruby -v code/string/gsub-vs-sub.rb
-$ ruby -v code/string/gsub-vs-tr.rb
-$ ruby -v code/string/mutable_vs_immutable_strings.rb
-$ ruby -v code/string/remove-extra-spaces-or-other-chars.rb
-$ ruby -v code/string/start-string-checking-match-vs-start_with.rb
-$ ruby -v code/string/start_with-vs-substring-==.rb
-$ ruby -v code/string/sub!-vs-gsub!-vs-[]=.rb
-$ ruby -v code/string/sub-vs-chomp-vs-delete_suffix.rb
-$ ruby -v code/string/sub-vs-delete_prefix.rb
-$ ruby -v code/string/unpack1-vs-unpack[0].rb
-$ ruby -v code/time/iso8601-vs-parse.rb
 ```
 
 
