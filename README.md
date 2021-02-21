@@ -1,10 +1,10 @@
-## Fast Truffle Ruby 
+## Fast TruffleRuby 
 
 
-The idia of this project is to run all collected examples from the [Fast Ruby] (https://github.com/JuanitoFatas/fast-ruby) and run it against the latest truffle ruby version to see if the same results hold for the Truffle ruby. 
+The idea of this project is to run all collected examples from [Fast Ruby](https://github.com/JuanitoFatas/fast-ruby) and run it against the latest TruffleRuby version to see if the same results hold for the TruffleRuby.
 
-As you will see in the resalst below some results a quite different
-1773.87s user 39.75s system 141% cpu 21:18.57 total
+As you will see in the results below, some results a quite different
+
 ## Results
 ```
 $ ruby -v code/general/array-argument-vs-splat-arguments.rb
