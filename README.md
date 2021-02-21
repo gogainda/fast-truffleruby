@@ -1,7 +1,7 @@
 ## Fast TruffleRuby 
 
 
-The idea of this project is to run all collected examples from [Fast Ruby](https://github.com/JuanitoFatas/fast-ruby) and run it against the latest TruffleRuby version to see if the same results hold for the TruffleRuby.
+The idea of this project is to run all collected examples from [Fast Ruby](https://github.com/JuanitoFatas/fast-ruby) and run it against the latest TruffleRuby version to see if the same results hold for TruffleRuby.
 
 As you will see in the results below, some results a quite different
 
