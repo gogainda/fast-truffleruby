@@ -4,8 +4,11 @@
 The idea of this project is to run all collected examples from [Fast Ruby](https://github.com/JuanitoFatas/fast-ruby) and run it against the latest TruffleRuby version to see if the same results hold for TruffleRuby.
 
 As you will see in the results below, some results a quite different
+## Scheduled run results
+There is a Github Action workflow configured to run the test suit periodically and save the results into [runs.log](https://github.com/gogainda/fast-truffleruby/blob/master/runs.log) file
 
-## Results
+
+## Results 
 ```
 $ ruby -v code/general/attr-accessor-vs-getter-and-setter.rb
 truffleruby 21.3.0-dev-d772ae7b, like ruby 2.7.3, GraalVM CE Native [x86_64-darwin]
