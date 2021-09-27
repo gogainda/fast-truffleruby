@@ -21,16 +21,15 @@ jobs:
         with:
           ruby-version: ${{ matrix.ruby }}
           bundler-cache: true
-
-      - name: echo
-        run: |
-          echo "hello" > scheduled_runs.log
+      - name: Test
+        continue-on-error: ${{ matrix.experimental }}
+        run: bundle exec rake > runs.log
       - name: Commit files
         id: commit
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
-          git add scheduled_runs.log
+          git add runs.log
           if [-z "$(git status --porcelain)"]; then
              echo "::set-output name=push::false"
           else
