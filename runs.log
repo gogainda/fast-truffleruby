@@ -1,922 +1,922 @@
 $ ruby -v code/general/array-argument-vs-splat-arguments.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
 Function with single Array argument
-                       198.818M i/100ms
+                       183.860M i/100ms
 Function with splat arguments
-                       595.000  i/100ms
+                       638.000  i/100ms
 Calculating -------------------------------------
 Function with single Array argument
-                          1.989B (± 0.3%) i/s -     10.140B in   5.097301s
+                          1.847B (± 3.5%) i/s -      9.377B in   5.082560s
 Function with splat arguments
-                          6.318k (± 5.6%) i/s -     31.535k in   5.008029s
+                          7.858k (± 7.7%) i/s -     39.556k in   5.066780s
 
 Comparison:
-Function with single Array argument: 1989243540.7 i/s
-Function with splat arguments:     6318.3 i/s - 314840.02x  (± 0.00) slower
+Function with single Array argument: 1847191080.9 i/s
+Function with splat arguments:     7857.5 i/s - 235085.92x  (± 0.00) slower
 
 $ ruby -v code/general/assignment.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
- Parallel Assignment   197.822M i/100ms
+ Parallel Assignment   191.967M i/100ms
 Sequential Assignment
-                       198.732M i/100ms
+                       193.116M i/100ms
 Calculating -------------------------------------
- Parallel Assignment      1.988B (± 0.4%) i/s -     10.089B in   5.074230s
+ Parallel Assignment      1.842B (± 3.2%) i/s -      9.214B in   5.008067s
 Sequential Assignment
-                          1.990B (± 0.2%) i/s -     10.135B in   5.092655s
+                          1.796B (± 2.0%) i/s -      9.076B in   5.057021s
 
 Comparison:
-Sequential Assignment: 1990194550.9 i/s
- Parallel Assignment: 1988287972.3 i/s - same-ish: difference falls within error
+ Parallel Assignment: 1841892911.3 i/s
+Sequential Assignment: 1795571156.9 i/s - same-ish: difference falls within error
 
 $ ruby -v code/general/attr-accessor-vs-getter-and-setter.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-   getter_and_setter   198.828M i/100ms
-       attr_accessor   198.741M i/100ms
+   getter_and_setter   181.094M i/100ms
+       attr_accessor   192.331M i/100ms
 Calculating -------------------------------------
-   getter_and_setter      1.984B (± 1.4%) i/s -      9.941B in   5.010933s
-       attr_accessor      1.990B (± 0.2%) i/s -     10.136B in   5.092868s
+   getter_and_setter      1.932B (± 2.5%) i/s -      9.779B in   5.063465s
+       attr_accessor      1.947B (± 2.6%) i/s -      9.809B in   5.041363s
 
 Comparison:
-       attr_accessor: 1990206311.0 i/s
-   getter_and_setter: 1984344723.5 i/s - same-ish: difference falls within error
+       attr_accessor: 1947106352.6 i/s
+   getter_and_setter: 1932496636.2 i/s - same-ish: difference falls within error
 
 $ ruby -v code/general/begin-rescue-vs-respond-to.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-      begin...rescue     6.757k i/100ms
-         respond_to?   198.704M i/100ms
+      begin...rescue     8.536k i/100ms
+         respond_to?   195.322M i/100ms
 Calculating -------------------------------------
-      begin...rescue     45.491k (± 3.0%) i/s -    229.738k in   5.054732s
-         respond_to?      1.993B (± 0.3%) i/s -     10.134B in   5.085505s
+      begin...rescue     62.870k (± 4.6%) i/s -    315.832k in   5.034287s
+         respond_to?      1.884B (± 4.9%) i/s -      9.571B in   5.093057s
 
 Comparison:
-         respond_to?: 1992717379.1 i/s
-      begin...rescue:    45490.6 i/s - 43805.02x  (± 0.00) slower
+         respond_to?: 1883939939.6 i/s
+      begin...rescue:    62870.4 i/s - 29965.47x  (± 0.00) slower
 
 $ ruby -v code/general/block-apply-method.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-              normal   198.982M i/100ms
-             &method   200.314M i/100ms
+              normal   192.651M i/100ms
+             &method   189.308M i/100ms
 Calculating -------------------------------------
-              normal      1.996B (± 0.5%) i/s -     10.148B in   5.085219s
-             &method      2.000B (± 0.5%) i/s -     10.016B in   5.009233s
+              normal      1.930B (± 2.5%) i/s -      9.825B in   5.093130s
+             &method      1.929B (± 2.4%) i/s -      9.655B in   5.007454s
 
 Comparison:
-             &method: 1999503531.1 i/s
-              normal: 1995661134.5 i/s - same-ish: difference falls within error
+              normal: 1930357939.8 i/s
+             &method: 1929250550.0 i/s - same-ish: difference falls within error
 
 $ ruby -v code/general/define_method-vs-module-eval.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
 module_eval with string
-                        94.000  i/100ms
-       define_method   128.000  i/100ms
+                        91.000  i/100ms
+       define_method   126.000  i/100ms
 Calculating -------------------------------------
 module_eval with string
-                          1.426k (±53.4%) i/s -      4.230k in   5.018372s
-       define_method      3.062k (±60.0%) i/s -      6.144k in   6.710838s
+                          1.393k (±51.0%) i/s -      3.913k in   5.076492s
+       define_method      4.626k (±57.0%) i/s -      7.560k in   6.973789s
 
 Comparison:
-       define_method:     3061.7 i/s
-module_eval with string:     1425.9 i/s - same-ish: difference falls within error
+       define_method:     4625.9 i/s
+module_eval with string:     1392.9 i/s - same-ish: difference falls within error
 
 $ ruby -v code/general/format-vs-round-and-to-s.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-         Float#round    58.798k i/100ms
-       Kernel#format    43.621k i/100ms
-            String#%    43.740k i/100ms
+         Float#round    63.894k i/100ms
+       Kernel#format    46.597k i/100ms
+            String#%    47.186k i/100ms
 Calculating -------------------------------------
-         Float#round    631.399k (± 2.7%) i/s -      3.175M in   5.032431s
-       Kernel#format    426.787k (± 2.3%) i/s -      2.137M in   5.010930s
-            String#%    429.608k (± 2.3%) i/s -      2.187M in   5.093614s
+         Float#round    684.803k (± 4.5%) i/s -      3.450M in   5.048948s
+       Kernel#format    462.369k (± 2.8%) i/s -      2.330M in   5.043120s
+            String#%    461.479k (± 3.6%) i/s -      2.312M in   5.016958s
 
 Comparison:
-         Float#round:   631399.4 i/s
-            String#%:   429608.0 i/s - 1.47x  (± 0.00) slower
-       Kernel#format:   426787.2 i/s - 1.48x  (± 0.00) slower
+         Float#round:   684803.2 i/s
+       Kernel#format:   462369.2 i/s - 1.48x  (± 0.00) slower
+            String#%:   461478.8 i/s - 1.48x  (± 0.00) slower
 
 $ ruby -v code/general/hash-vs-openstruct-on-access.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-                Hash   199.263M i/100ms
-          OpenStruct   200.535M i/100ms
+                Hash   188.378M i/100ms
+          OpenStruct   194.038M i/100ms
 Calculating -------------------------------------
-                Hash      1.997B (± 0.5%) i/s -     10.162B in   5.088447s
-          OpenStruct      2.000B (± 0.6%) i/s -     10.027B in   5.012596s
+                Hash      1.924B (± 2.9%) i/s -      9.607B in   4.998502s
+          OpenStruct      1.850B (± 3.3%) i/s -      9.314B in   5.039697s
 
 Comparison:
-          OpenStruct: 2000382540.0 i/s
-                Hash: 1997209266.5 i/s - same-ish: difference falls within error
+                Hash: 1923651843.5 i/s
+          OpenStruct: 1850164954.7 i/s - same-ish: difference falls within error
 
 $ ruby -v code/general/hash-vs-openstruct.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-                Hash   199.107M i/100ms
-          OpenStruct     2.314k i/100ms
+                Hash   187.120M i/100ms
+          OpenStruct     2.051k i/100ms
 Calculating -------------------------------------
-                Hash      1.991B (± 0.5%) i/s -      9.955B in   5.001068s
-          OpenStruct     25.508k (± 8.9%) i/s -    127.270k in   5.060193s
+                Hash      1.916B (± 2.9%) i/s -      9.730B in   5.081913s
+          OpenStruct     21.802k (±13.5%) i/s -    106.652k in   5.051020s
 
 Comparison:
-                Hash: 1990682383.7 i/s
-          OpenStruct:    25508.4 i/s - 78040.31x  (± 0.00) slower
+                Hash: 1916315852.8 i/s
+          OpenStruct:    21802.1 i/s - 87896.02x  (± 0.00) slower
 
 $ ruby -v code/general/inheritance-check.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-  less than or equal   606.700k i/100ms
-  ancestors.include?   108.033k i/100ms
+  less than or equal   712.586k i/100ms
+  ancestors.include?   118.399k i/100ms
 Calculating -------------------------------------
-  less than or equal      6.728M (± 3.8%) i/s -     33.975M in   5.057812s
-  ancestors.include?      1.091M (± 4.3%) i/s -      5.510M in   5.061724s
+  less than or equal      7.878M (± 5.5%) i/s -     39.905M in   5.082004s
+  ancestors.include?      1.205M (± 6.1%) i/s -      6.038M in   5.029819s
 
 Comparison:
-  less than or equal:  6727621.6 i/s
-  ancestors.include?:  1090602.5 i/s - 6.17x  (± 0.00) slower
+  less than or equal:  7877544.3 i/s
+  ancestors.include?:  1205246.0 i/s - 6.54x  (± 0.00) slower
 
 $ ruby -v code/general/loop-vs-while-true.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
           While Loop     1.000  i/100ms
          Kernel loop     1.000  i/100ms
 Calculating -------------------------------------
-          While Loop     19.926  (± 0.0%) i/s -    100.000  in   5.018679s
-         Kernel loop      4.960  (± 0.0%) i/s -     25.000  in   5.040590s
+          While Loop     21.396  (± 4.7%) i/s -    107.000  in   5.011424s
+         Kernel loop      4.470  (± 0.0%) i/s -     23.000  in   5.146705s
 
 Comparison:
-          While Loop:       19.9 i/s
-         Kernel loop:        5.0 i/s - 4.02x  (± 0.00) slower
+          While Loop:       21.4 i/s
+         Kernel loop:        4.5 i/s - 4.79x  (± 0.00) slower
 
 $ ruby -v code/general/raise-vs-e2mmap.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 $ ruby -v code/array/array-first-vs-index.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-           Array#[0]   198.841M i/100ms
-         Array#first   199.019M i/100ms
+           Array#[0]   189.545M i/100ms
+         Array#first   192.446M i/100ms
 Calculating -------------------------------------
-           Array#[0]      1.993B (± 0.4%) i/s -     10.141B in   5.088892s
-         Array#first      1.991B (± 0.3%) i/s -     10.150B in   5.097896s
+           Array#[0]      1.884B (± 3.6%) i/s -      9.477B in   5.035839s
+         Array#first      1.802B (±12.3%) i/s -      8.853B in   5.058586s
 
 Comparison:
-           Array#[0]: 1992786304.9 i/s
-         Array#first: 1991034709.1 i/s - same-ish: difference falls within error
+           Array#[0]: 1884393217.0 i/s
+         Array#first: 1801638440.9 i/s - same-ish: difference falls within error
 
 $ ruby -v code/array/array-last-vs-index.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-          Array#[-1]   199.017M i/100ms
-          Array#last   198.916M i/100ms
+          Array#[-1]   192.700M i/100ms
+          Array#last   177.932M i/100ms
 Calculating -------------------------------------
-          Array#[-1]      1.998B (± 0.5%) i/s -     10.150B in   5.079430s
-          Array#last      1.999B (± 0.4%) i/s -     10.145B in   5.073971s
+          Array#[-1]      1.842B (± 4.7%) i/s -      9.250B in   5.034272s
+          Array#last      1.906B (± 3.8%) i/s -      9.608B in   5.049999s
 
 Comparison:
-          Array#last: 1999400855.1 i/s
-          Array#[-1]: 1998285373.5 i/s - same-ish: difference falls within error
+          Array#last: 1905572552.0 i/s
+          Array#[-1]: 1841519810.2 i/s - same-ish: difference falls within error
 
 $ ruby -v code/array/bsearch-vs-find.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
                 find     1.000  i/100ms
-             bsearch   391.403k i/100ms
+             bsearch   478.587k i/100ms
 Calculating -------------------------------------
-                find      0.091  (± 0.0%) i/s -      1.000  in  10.984909s
-             bsearch      3.956M (± 3.4%) i/s -     19.962M in   5.052430s
+                find      0.107  (± 0.0%) i/s -      1.000  in   9.342349s
+             bsearch      4.892M (± 4.6%) i/s -     24.408M in   5.000521s
 
 Comparison:
-             bsearch:  3955853.0 i/s
-                find:        0.1 i/s - 43454686.08x  (± 0.00) slower
+             bsearch:  4892148.9 i/s
+                find:        0.1 i/s - 45704164.51x  (± 0.00) slower
 
 $ ruby -v code/array/insert-vs-unshift.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
        Array#unshift     1.000  i/100ms
         Array#insert     1.000  i/100ms
 Calculating -------------------------------------
-       Array#unshift      0.103  (± 0.0%) i/s -      1.000  in   9.714668s
-        Array#insert      0.785  (± 0.0%) i/s -      4.000  in   5.096095s
+       Array#unshift      0.081  (± 0.0%) i/s -      1.000  in  12.279026s
+        Array#insert      0.760  (± 0.0%) i/s -      4.000  in   5.262828s
 
 Comparison:
         Array#insert:        0.8 i/s
-       Array#unshift:        0.1 i/s - 7.63x  (± 0.00) slower
+       Array#unshift:        0.1 i/s - 9.33x  (± 0.00) slower
 
 $ ruby -v code/array/length-vs-size-vs-count.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-        Array#length   198.952M i/100ms
-          Array#size   199.085M i/100ms
-         Array#count   199.163M i/100ms
+        Array#length   187.655M i/100ms
+          Array#size   184.944M i/100ms
+         Array#count   189.820M i/100ms
 Calculating -------------------------------------
-        Array#length      1.990B (± 0.2%) i/s -      9.948B in   4.999552s
-          Array#size      1.990B (± 0.2%) i/s -      9.954B in   5.001750s
-         Array#count      1.990B (± 0.3%) i/s -      9.958B in   5.004458s
+        Array#length      1.921B (± 3.6%) i/s -      9.758B in   5.086219s
+          Array#size      1.930B (± 2.5%) i/s -      9.802B in   5.082329s
+         Array#count      1.908B (± 3.1%) i/s -      9.681B in   5.079632s
 
 Comparison:
-          Array#size: 1990160611.5 i/s
-         Array#count: 1989878042.0 i/s - same-ish: difference falls within error
-        Array#length: 1989706791.0 i/s - same-ish: difference falls within error
+          Array#size: 1929937016.5 i/s
+        Array#length: 1921266617.9 i/s - same-ish: difference falls within error
+         Array#count: 1907697786.1 i/s - same-ish: difference falls within error
 
 $ ruby -v code/array/shuffle-first-vs-sample.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
- Array#shuffle.first    18.926k i/100ms
-        Array#sample     2.034M i/100ms
+ Array#shuffle.first    21.546k i/100ms
+        Array#sample     2.536M i/100ms
 Calculating -------------------------------------
- Array#shuffle.first    194.593k (± 1.8%) i/s -    984.152k in   5.059317s
-        Array#sample     20.115M (± 1.9%) i/s -    101.722M in   5.058883s
+ Array#shuffle.first    221.331k (± 4.4%) i/s -      1.120M in   5.073051s
+        Array#sample     25.069M (± 2.5%) i/s -    126.805M in   5.061377s
 
 Comparison:
-        Array#sample: 20115270.2 i/s
- Array#shuffle.first:   194593.3 i/s - 103.37x  (± 0.00) slower
+        Array#sample: 25069207.8 i/s
+ Array#shuffle.first:   221330.8 i/s - 113.27x  (± 0.00) slower
 
 $ ruby -v code/date/iso8601-vs-parse.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-        Date.iso8601   192.000  i/100ms
-          Date.parse    78.000  i/100ms
+        Date.iso8601   189.000  i/100ms
+          Date.parse   176.000  i/100ms
 Calculating -------------------------------------
-        Date.iso8601     11.928k (±31.7%) i/s -     44.928k in   4.991683s
-          Date.parse      3.449k (±30.3%) i/s -     14.508k in   5.013613s
+        Date.iso8601      9.229k (±30.5%) i/s -     39.501k in   5.002313s
+          Date.parse      3.727k (±26.4%) i/s -     16.544k in   5.002894s
 
 Comparison:
-        Date.iso8601:    11928.3 i/s
-          Date.parse:     3448.7 i/s - 3.46x  (± 0.00) slower
+        Date.iso8601:     9229.4 i/s
+          Date.parse:     3727.2 i/s - 2.48x  (± 0.00) slower
 
 $ ruby -v code/enumerable/each-push-vs-map.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-   Array#each + push   122.459k i/100ms
-           Array#map   488.898k i/100ms
+   Array#each + push   163.955k i/100ms
+           Array#map   823.289k i/100ms
 Calculating -------------------------------------
-   Array#each + push      1.264M (± 5.0%) i/s -      6.368M in   5.052040s
-           Array#map      4.913M (± 6.8%) i/s -     24.934M in   5.097975s
+   Array#each + push      1.782M (± 6.6%) i/s -      9.018M in   5.082540s
+           Array#map      7.881M (± 7.8%) i/s -     39.518M in   5.046827s
 
 Comparison:
-           Array#map:  4913188.0 i/s
-   Array#each + push:  1263662.5 i/s - 3.89x  (± 0.00) slower
+           Array#map:  7881063.8 i/s
+   Array#each + push:  1782391.4 i/s - 4.42x  (± 0.00) slower
 
 $ ruby -v code/enumerable/each-vs-for-loop.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-            For loop     7.012M i/100ms
-               #each    47.423M i/100ms
+            For loop     8.140M i/100ms
+               #each    40.740M i/100ms
 Calculating -------------------------------------
-            For loop     71.315M (± 1.7%) i/s -    357.606M in   5.015930s
-               #each    473.413M (± 0.5%) i/s -      2.371B in   5.008714s
+            For loop     82.047M (± 2.9%) i/s -    415.161M in   5.064548s
+               #each    439.062M (± 3.0%) i/s -      2.200B in   5.015115s
 
 Comparison:
-               #each: 473413258.1 i/s
-            For loop: 71314515.4 i/s - 6.64x  (± 0.00) slower
+               #each: 439061589.5 i/s
+            For loop: 82047071.5 i/s - 5.35x  (± 0.00) slower
 
 $ ruby -v code/enumerable/each_with_index-vs-while-loop.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-          While Loop   577.515k i/100ms
-     each_with_index     1.067M i/100ms
+          While Loop   791.296k i/100ms
+     each_with_index   704.955k i/100ms
 Calculating -------------------------------------
-          While Loop      5.824M (± 0.2%) i/s -     29.453M in   5.057449s
-     each_with_index     10.661M (± 0.5%) i/s -     53.349M in   5.004105s
+          While Loop      8.142M (± 3.5%) i/s -     41.147M in   5.060417s
+     each_with_index     11.251M (± 5.3%) i/s -     56.396M in   5.026937s
 
 Comparison:
-     each_with_index: 10661387.5 i/s
-          While Loop:  5823767.2 i/s - 1.83x  (± 0.00) slower
+     each_with_index: 11251288.1 i/s
+          While Loop:  8141506.9 i/s - 1.38x  (± 0.00) slower
 
 $ ruby -v code/enumerable/inject-symbol-vs-block.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-       inject symbol   122.647k i/100ms
-      inject to_proc   122.912k i/100ms
-        inject block   122.943k i/100ms
+       inject symbol   148.439k i/100ms
+      inject to_proc   147.728k i/100ms
+        inject block   144.195k i/100ms
 Calculating -------------------------------------
-       inject symbol      1.229M (± 0.1%) i/s -      6.255M in   5.089041s
-      inject to_proc      1.229M (± 0.1%) i/s -      6.146M in   5.001283s
-        inject block      1.230M (± 0.2%) i/s -      6.270M in   5.098769s
+       inject symbol      1.376M (±17.7%) i/s -      5.789M in   5.046701s
+      inject to_proc      1.473M (± 3.5%) i/s -      7.386M in   5.020700s
+        inject block      1.465M (± 3.9%) i/s -      7.354M in   5.027105s
 
 Comparison:
-        inject block:  1229732.5 i/s
-       inject symbol:  1229112.5 i/s - same-ish: difference falls within error
-      inject to_proc:  1228805.2 i/s - same-ish: difference falls within error
+      inject to_proc:  1473020.4 i/s
+        inject block:  1465069.9 i/s - same-ish: difference falls within error
+       inject symbol:  1375837.4 i/s - same-ish: difference falls within error
 
 $ ruby -v code/enumerable/map-flatten-vs-flat_map.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-Array#map.flatten(1)     9.054k i/100ms
-   Array#map.flatten    10.269k i/100ms
-      Array#flat_map    25.790k i/100ms
+Array#map.flatten(1)    11.455k i/100ms
+   Array#map.flatten    14.930k i/100ms
+      Array#flat_map    35.912k i/100ms
 Calculating -------------------------------------
-Array#map.flatten(1)    105.796k (± 3.9%) i/s -    534.186k in   5.057700s
-   Array#map.flatten    105.017k (± 3.8%) i/s -    533.988k in   5.092573s
-      Array#flat_map    246.669k (± 5.8%) i/s -      1.238M in   5.036064s
+Array#map.flatten(1)    152.600k (± 6.3%) i/s -    767.485k in   5.051285s
+   Array#map.flatten    155.436k (± 5.3%) i/s -    776.360k in   5.010040s
+      Array#flat_map    356.620k (± 5.5%) i/s -      1.796M in   5.051210s
 
 Comparison:
-      Array#flat_map:   246669.5 i/s
-Array#map.flatten(1):   105796.2 i/s - 2.33x  (± 0.00) slower
-   Array#map.flatten:   105017.3 i/s - 2.35x  (± 0.00) slower
+      Array#flat_map:   356619.6 i/s
+   Array#map.flatten:   155436.4 i/s - 2.29x  (± 0.00) slower
+Array#map.flatten(1):   152599.7 i/s - 2.34x  (± 0.00) slower
 
 $ ruby -v code/enumerable/reverse-each-vs-reverse_each.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-  Array#reverse.each   129.443k i/100ms
-  Array#reverse_each   764.179k i/100ms
+  Array#reverse.each   180.344k i/100ms
+  Array#reverse_each     1.208M i/100ms
 Calculating -------------------------------------
-  Array#reverse.each      1.397M (± 3.3%) i/s -      6.990M in   5.007755s
-  Array#reverse_each      7.635M (± 0.0%) i/s -     38.209M in   5.004128s
+  Array#reverse.each      1.881M (± 6.3%) i/s -      9.378M in   5.006956s
+  Array#reverse_each     11.786M (± 3.7%) i/s -     59.193M in   5.029263s
 
 Comparison:
-  Array#reverse_each:  7635488.0 i/s
-  Array#reverse.each:  1397439.5 i/s - 5.46x  (± 0.00) slower
+  Array#reverse_each: 11786029.5 i/s
+  Array#reverse.each:  1880510.9 i/s - 6.27x  (± 0.00) slower
 
 $ ruby -v code/enumerable/select-first-vs-detect.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
 Enumerable#select.first
-                       513.142k i/100ms
-   Enumerable#detect     3.203M i/100ms
+                       545.849k i/100ms
+   Enumerable#detect     3.096M i/100ms
 Calculating -------------------------------------
 Enumerable#select.first
-                          5.844M (± 6.2%) i/s -    116.483M in  20.044600s
-   Enumerable#detect     32.051M (± 0.4%) i/s -    643.724M in  20.084408s
+                          6.584M (± 9.3%) i/s -    130.458M in  20.021636s
+   Enumerable#detect     30.724M (± 4.8%) i/s -    616.192M in  20.103026s
 
 Comparison:
-   Enumerable#detect: 32051389.6 i/s
-Enumerable#select.first:  5844154.9 i/s - 5.48x  (± 0.00) slower
+   Enumerable#detect: 30723585.9 i/s
+Enumerable#select.first:  6583544.0 i/s - 4.67x  (± 0.00) slower
 
 $ ruby -v code/enumerable/select-last-vs-reverse-detect.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
 Enumerable#reverse.detect
-                       121.306k i/100ms
+                       179.468k i/100ms
 Enumerable#select.last
-                       273.023k i/100ms
+                       339.792k i/100ms
 Calculating -------------------------------------
 Enumerable#reverse.detect
-                          1.402M (± 3.7%) i/s -      7.036M in   5.025105s
+                          2.014M (± 6.9%) i/s -     10.050M in   5.014310s
 Enumerable#select.last
-                          2.764M (± 3.7%) i/s -     13.924M in   5.045858s
+                          3.604M (± 5.7%) i/s -     18.009M in   5.014063s
 
 Comparison:
-Enumerable#select.last:  2763506.8 i/s
-Enumerable#reverse.detect:  1402173.3 i/s - 1.97x  (± 0.00) slower
+Enumerable#select.last:  3603606.0 i/s
+Enumerable#reverse.detect:  2014327.2 i/s - 1.79x  (± 0.00) slower
 
 $ ruby -v code/enumerable/sort-vs-sort_by.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
 Enumerable#sort_by (Symbol#to_proc)
-                         1.846k i/100ms
-  Enumerable#sort_by     2.107k i/100ms
-     Enumerable#sort     2.585k i/100ms
+                         2.504k i/100ms
+  Enumerable#sort_by     2.586k i/100ms
+     Enumerable#sort     3.460k i/100ms
 Calculating -------------------------------------
 Enumerable#sort_by (Symbol#to_proc)
-                         18.828k (±18.5%) i/s -     84.916k in   5.044392s
-  Enumerable#sort_by     19.263k (±18.1%) i/s -     86.387k in   5.053764s
-     Enumerable#sort     25.911k (± 0.2%) i/s -    131.835k in   5.088036s
+                         23.091k (±19.7%) i/s -    100.160k in   5.039067s
+  Enumerable#sort_by     23.318k (±19.8%) i/s -    103.440k in   5.043493s
+     Enumerable#sort     32.616k (± 5.2%) i/s -    162.620k in   4.999287s
 
 Comparison:
-     Enumerable#sort:    25910.9 i/s
-  Enumerable#sort_by:    19262.9 i/s - 1.35x  (± 0.00) slower
-Enumerable#sort_by (Symbol#to_proc):    18828.2 i/s - 1.38x  (± 0.00) slower
+     Enumerable#sort:    32616.2 i/s
+  Enumerable#sort_by:    23318.1 i/s - 1.40x  (± 0.00) slower
+Enumerable#sort_by (Symbol#to_proc):    23090.7 i/s - 1.41x  (± 0.00) slower
 
 $ ruby -v code/enumerable/sort_by-first-vs-min_by.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-   Enumerable#min_by   421.285k i/100ms
+   Enumerable#min_by   386.170k i/100ms
 Enumerable#sort_by...first
-                         4.326k i/100ms
+                         5.516k i/100ms
 Calculating -------------------------------------
-   Enumerable#min_by      4.213M (± 0.2%) i/s -     21.064M in   4.999618s
+   Enumerable#min_by      4.135M (± 2.6%) i/s -     20.853M in   5.046358s
 Enumerable#sort_by...first
-                         47.922k (± 3.0%) i/s -    242.256k in   5.059985s
+                         61.781k (± 4.2%) i/s -    308.896k in   5.008760s
 
 Comparison:
-   Enumerable#min_by:  4213194.2 i/s
-Enumerable#sort_by...first:    47921.9 i/s - 87.92x  (± 0.00) slower
+   Enumerable#min_by:  4135096.5 i/s
+Enumerable#sort_by...first:    61780.6 i/s - 66.93x  (± 0.00) slower
 
 $ ruby -v code/hash/bracket-vs-dup.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-              Hash[]   165.246k i/100ms
-            Hash#dup   197.740k i/100ms
+              Hash[]   267.002k i/100ms
+            Hash#dup   307.656k i/100ms
 Calculating -------------------------------------
-              Hash[]      2.025M (± 5.5%) i/s -     10.245M in   5.076716s
-            Hash#dup      1.998M (± 4.4%) i/s -     10.085M in   5.056843s
+              Hash[]      3.193M (± 7.7%) i/s -     16.020M in   5.050266s
+            Hash#dup      3.090M (± 7.0%) i/s -     15.383M in   5.004103s
 
 Comparison:
-              Hash[]:  2024693.6 i/s
-            Hash#dup:  1998271.5 i/s - same-ish: difference falls within error
+              Hash[]:  3193496.7 i/s
+            Hash#dup:  3090236.7 i/s - same-ish: difference falls within error
 
 $ ruby -v code/hash/bracket-vs-fetch.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-     Hash#[], symbol   199.474M i/100ms
-  Hash#fetch, symbol   199.566M i/100ms
-     Hash#[], string     3.889M i/100ms
-  Hash#fetch, string     4.032M i/100ms
+     Hash#[], symbol   175.804M i/100ms
+  Hash#fetch, symbol   173.388M i/100ms
+     Hash#[], string     4.910M i/100ms
+  Hash#fetch, string     5.047M i/100ms
 Calculating -------------------------------------
-     Hash#[], symbol      1.996B (± 0.4%) i/s -     10.173B in   5.097222s
-  Hash#fetch, symbol      1.997B (± 0.4%) i/s -     10.178B in   5.096674s
-     Hash#[], string     38.868M (± 0.5%) i/s -    194.454M in   5.002997s
-  Hash#fetch, string     40.314M (± 0.4%) i/s -    201.578M in   5.000281s
+     Hash#[], symbol      1.815B (± 3.7%) i/s -      9.142B in   5.044953s
+  Hash#fetch, symbol      1.833B (± 3.9%) i/s -      9.190B in   5.020778s
+     Hash#[], string     51.126M (± 2.8%) i/s -    260.219M in   5.093652s
+  Hash#fetch, string     48.793M (± 4.3%) i/s -    247.312M in   5.078580s
 
 Comparison:
-  Hash#fetch, symbol: 1996987667.4 i/s
-     Hash#[], symbol: 1995860738.6 i/s - same-ish: difference falls within error
-  Hash#fetch, string: 40313981.5 i/s - 49.54x  (± 0.00) slower
-     Hash#[], string: 38868305.7 i/s - 51.38x  (± 0.00) slower
+  Hash#fetch, symbol: 1833220881.2 i/s
+     Hash#[], symbol: 1814613191.5 i/s - same-ish: difference falls within error
+     Hash#[], string: 51125778.0 i/s - 35.86x  (± 0.00) slower
+  Hash#fetch, string: 48793212.4 i/s - 37.57x  (± 0.00) slower
 
 $ ruby -v code/hash/dig-vs-[]-vs-fetch.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-            Hash#dig    49.755M i/100ms
-             Hash#[]    49.764M i/100ms
-          Hash#[] ||    50.270M i/100ms
-          Hash#[] &&    49.816M i/100ms
-          Hash#fetch    49.859M i/100ms
- Hash#fetch fallback    49.866M i/100ms
+            Hash#dig    74.153M i/100ms
+             Hash#[]    72.928M i/100ms
+          Hash#[] ||    73.185M i/100ms
+          Hash#[] &&    70.475M i/100ms
+          Hash#fetch    73.130M i/100ms
+ Hash#fetch fallback    68.432M i/100ms
 Calculating -------------------------------------
-            Hash#dig    497.704M (± 0.4%) i/s -      2.537B in   5.098468s
-             Hash#[]    498.069M (± 0.3%) i/s -      2.538B in   5.095620s
-          Hash#[] ||    498.943M (± 0.4%) i/s -      2.514B in   5.037761s
-          Hash#[] &&    501.581M (± 0.6%) i/s -      2.541B in   5.065411s
-          Hash#fetch    499.703M (± 1.3%) i/s -      2.543B in   5.089577s
- Hash#fetch fallback    499.962M (± 0.5%) i/s -      2.543B in   5.086850s
+            Hash#dig    737.464M (± 3.9%) i/s -      3.708B in   5.035537s
+             Hash#[]    740.638M (± 3.6%) i/s -      3.719B in   5.028713s
+          Hash#[] ||    726.682M (± 3.6%) i/s -      3.659B in   5.042556s
+          Hash#[] &&    725.608M (± 3.2%) i/s -      3.665B in   5.055891s
+          Hash#fetch    744.103M (± 4.0%) i/s -      3.730B in   5.020310s
+ Hash#fetch fallback    724.468M (± 5.1%) i/s -      3.627B in   5.019244s
 
 Comparison:
-          Hash#[] &&: 501580822.0 i/s
- Hash#fetch fallback: 499961733.3 i/s - same-ish: difference falls within error
-          Hash#fetch: 499703072.8 i/s - same-ish: difference falls within error
-          Hash#[] ||: 498942711.8 i/s - same-ish: difference falls within error
-             Hash#[]: 498069228.9 i/s - same-ish: difference falls within error
-            Hash#dig: 497704237.1 i/s - same-ish: difference falls within error
+          Hash#fetch: 744102618.3 i/s
+             Hash#[]: 740637507.8 i/s - same-ish: difference falls within error
+            Hash#dig: 737464484.9 i/s - same-ish: difference falls within error
+          Hash#[] ||: 726682031.6 i/s - same-ish: difference falls within error
+          Hash#[] &&: 725607895.2 i/s - same-ish: difference falls within error
+ Hash#fetch fallback: 724468169.2 i/s - same-ish: difference falls within error
 
 $ ruby -v code/hash/fetch-vs-fetch-with-block.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-  Hash#fetch + const   199.860M i/100ms
-  Hash#fetch + block   199.247M i/100ms
-    Hash#fetch + arg   199.816M i/100ms
+  Hash#fetch + const   174.969M i/100ms
+  Hash#fetch + block   183.226M i/100ms
+    Hash#fetch + arg   176.183M i/100ms
 Calculating -------------------------------------
-  Hash#fetch + const      1.994B (± 0.7%) i/s -      9.993B in   5.012651s
-  Hash#fetch + block      1.991B (± 0.3%) i/s -      9.962B in   5.003527s
-    Hash#fetch + arg      1.998B (± 0.5%) i/s -      9.991B in   5.001177s
+  Hash#fetch + const      1.847B (± 4.5%) i/s -      9.273B in   5.031249s
+  Hash#fetch + block      1.747B (±21.5%) i/s -      7.512B in   5.199309s
+    Hash#fetch + arg      1.836B (± 4.7%) i/s -      9.162B in   5.001737s
 
 Comparison:
-    Hash#fetch + arg: 1997737378.8 i/s
-  Hash#fetch + const: 1993636082.5 i/s - same-ish: difference falls within error
-  Hash#fetch + block: 1991085455.0 i/s - same-ish: difference falls within error
+  Hash#fetch + const: 1847118939.9 i/s
+    Hash#fetch + arg: 1835946653.6 i/s - same-ish: difference falls within error
+  Hash#fetch + block: 1747014667.4 i/s - same-ish: difference falls within error
 
 $ ruby -v code/hash/hash-key-sort_by-vs-sort.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-      sort_by + to_h    16.940k i/100ms
-         sort + to_h    10.389k i/100ms
+      sort_by + to_h    16.187k i/100ms
+         sort + to_h    11.347k i/100ms
 Calculating -------------------------------------
-      sort_by + to_h    177.180k (± 5.4%) i/s -    897.820k in   5.082062s
-         sort + to_h    110.136k (± 3.8%) i/s -    550.617k in   5.006988s
+      sort_by + to_h    207.319k (±11.6%) i/s -      1.036M in   5.064303s
+         sort + to_h    113.747k (± 7.0%) i/s -    567.350k in   5.013603s
 
 Comparison:
-      sort_by + to_h:   177180.4 i/s
-         sort + to_h:   110136.3 i/s - 1.61x  (± 0.00) slower
+      sort_by + to_h:   207319.1 i/s
+         sort + to_h:   113746.9 i/s - 1.82x  (± 0.00) slower
 
 $ ruby -v code/hash/keys-each-vs-each_key.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-      Hash#keys.each    92.523k i/100ms
-       Hash#each_key    98.235k i/100ms
+      Hash#keys.each   103.301k i/100ms
+       Hash#each_key   122.899k i/100ms
 Calculating -------------------------------------
-      Hash#keys.each    924.404k (± 4.7%) i/s -      4.626M in   5.016333s
-       Hash#each_key    959.107k (± 5.2%) i/s -      4.814M in   5.033059s
+      Hash#keys.each      1.141M (± 6.2%) i/s -      5.682M in   4.999826s
+       Hash#each_key      1.203M (±19.5%) i/s -      5.285M in   5.006902s
 
 Comparison:
-       Hash#each_key:   959107.3 i/s
-      Hash#keys.each:   924404.0 i/s - same-ish: difference falls within error
+       Hash#each_key:  1202853.7 i/s
+      Hash#keys.each:  1140950.8 i/s - same-ish: difference falls within error
 
 $ ruby -v code/hash/keys-include-vs-key.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-  Hash#keys.include?   151.000  i/100ms
-           Hash#key?    83.002M i/100ms
+  Hash#keys.include?   140.000  i/100ms
+           Hash#key?     2.317M i/100ms
 Calculating -------------------------------------
-  Hash#keys.include?      1.586k (±14.8%) i/s -      7.701k in   5.053236s
-           Hash#key?    829.786M (± 0.2%) i/s -      4.150B in   5.001412s
+  Hash#keys.include?      2.034k (±12.2%) i/s -      9.940k in   5.004390s
+           Hash#key?     20.906M (± 3.5%) i/s -    106.594M in   5.105003s
 
 Comparison:
-           Hash#key?: 829785850.9 i/s
-  Hash#keys.include?:     1585.5 i/s - 523349.47x  (± 0.00) slower
+           Hash#key?: 20906205.0 i/s
+  Hash#keys.include?:     2034.0 i/s - 10278.27x  (± 0.00) slower
 
 $ ruby -v code/hash/merge-bang-vs-[]=.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-         Hash#merge!    19.805k i/100ms
-            Hash#[]=    21.604k i/100ms
+         Hash#merge!    25.810k i/100ms
+            Hash#[]=    30.549k i/100ms
 Calculating -------------------------------------
-         Hash#merge!    214.533k (± 3.9%) i/s -      1.089M in   5.085753s
-            Hash#[]=    217.817k (± 3.9%) i/s -      1.102M in   5.066264s
+         Hash#merge!    312.182k (± 6.6%) i/s -      1.574M in   5.066482s
+            Hash#[]=    317.636k (± 6.0%) i/s -      1.589M in   5.020728s
 
 Comparison:
-            Hash#[]=:   217817.1 i/s
-         Hash#merge!:   214532.5 i/s - same-ish: difference falls within error
+            Hash#[]=:   317636.3 i/s
+         Hash#merge!:   312181.7 i/s - same-ish: difference falls within error
 
 $ ruby -v code/hash/merge-bang-vs-merge-vs-dup-merge-bang.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
 {}#merge!(Hash) do end
-                         9.508k i/100ms
-      Hash#merge({})     7.722k i/100ms
- Hash#dup#merge!({})    12.400k i/100ms
+                        11.746k i/100ms
+      Hash#merge({})    12.900k i/100ms
+ Hash#dup#merge!({})    20.653k i/100ms
 Calculating -------------------------------------
 {}#merge!(Hash) do end
-                        120.406k (± 5.0%) i/s -    608.512k in   5.068219s
-      Hash#merge({})     79.057k (± 4.8%) i/s -    401.544k in   5.091823s
- Hash#dup#merge!({})    126.107k (± 4.4%) i/s -    632.400k in   5.025413s
+                        233.328k (± 5.3%) i/s -      1.163M in   4.999238s
+      Hash#merge({})    140.817k (± 4.6%) i/s -    709.500k in   5.049820s
+ Hash#dup#merge!({})    218.037k (± 4.3%) i/s -      1.095M in   5.030110s
 
 Comparison:
- Hash#dup#merge!({}):   126106.5 i/s
-{}#merge!(Hash) do end:   120405.7 i/s - same-ish: difference falls within error
-      Hash#merge({}):    79057.0 i/s - 1.60x  (± 0.00) slower
+{}#merge!(Hash) do end:   233327.7 i/s
+ Hash#dup#merge!({}):   218036.7 i/s - same-ish: difference falls within error
+      Hash#merge({}):   140816.7 i/s - 1.66x  (± 0.00) slower
 
 $ ruby -v code/hash/merge-vs-double-splat-operator.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-        Hash#**other   198.972M i/100ms
-          Hash#merge   199.164M i/100ms
+        Hash#**other   187.937M i/100ms
+          Hash#merge   189.619M i/100ms
 Calculating -------------------------------------
-        Hash#**other      1.990B (± 0.3%) i/s -      9.949B in   5.000443s
-          Hash#merge      1.991B (± 0.3%) i/s -      9.958B in   5.002850s
+        Hash#**other      1.882B (± 3.4%) i/s -      9.585B in   5.097816s
+          Hash#merge      1.872B (± 3.5%) i/s -      9.481B in   5.071683s
 
 Comparison:
-          Hash#merge: 1990516836.8 i/s
-        Hash#**other: 1989563143.0 i/s - same-ish: difference falls within error
+        Hash#**other: 1882363022.9 i/s
+          Hash#merge: 1871667931.9 i/s - same-ish: difference falls within error
 
 $ ruby -v code/hash/merge-vs-merge-bang.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-          Hash#merge   276.000  i/100ms
-         Hash#merge!    21.702k i/100ms
+          Hash#merge   498.000  i/100ms
+         Hash#merge!    31.602k i/100ms
 Calculating -------------------------------------
-          Hash#merge      3.290k (± 5.1%) i/s -     16.560k in   5.047659s
-         Hash#merge!    221.306k (± 3.6%) i/s -      1.107M in   5.008337s
+          Hash#merge      5.830k (± 9.6%) i/s -     28.884k in   5.002861s
+         Hash#merge!    306.765k (± 7.0%) i/s -      1.548M in   5.075209s
 
 Comparison:
-         Hash#merge!:   221306.3 i/s
-          Hash#merge:     3290.0 i/s - 67.27x  (± 0.00) slower
+         Hash#merge!:   306765.4 i/s
+          Hash#merge:     5830.2 i/s - 52.62x  (± 0.00) slower
 
 $ ruby -v code/hash/slice-native-vs-before-native.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-Hash#native-slice      936.865k i/100ms
-Array#each             805.249k i/100ms
-Array#each_w/_object   815.639k i/100ms
-Hash#select-include      1.100M i/100ms
+Hash#native-slice      972.026k i/100ms
+Array#each             847.085k i/100ms
+Array#each_w/_object   846.113k i/100ms
+Hash#select-include      1.477M i/100ms
 Calculating -------------------------------------
-Hash#native-slice        10.168M (± 4.8%) i/s -     51.528M in   5.080294s
-Array#each                8.126M (± 3.6%) i/s -     41.068M in   5.060741s
-Array#each_w/_object      8.192M (± 3.2%) i/s -     41.598M in   5.083816s
-Hash#select-include      11.023M (± 3.5%) i/s -     56.097M in   5.095844s
+Hash#native-slice        10.494M (± 5.7%) i/s -     52.489M in   5.019561s
+Array#each                8.538M (± 5.6%) i/s -     43.201M in   5.077039s
+Array#each_w/_object      8.627M (± 5.1%) i/s -     43.152M in   5.015536s
+Hash#select-include      14.984M (± 5.4%) i/s -     75.335M in   5.043667s
 
 Comparison:
-Hash#select-include : 11023369.2 i/s
-Hash#native-slice   : 10168005.7 i/s - same-ish: difference falls within error
-Array#each_w/_object:  8191726.5 i/s - 1.35x  (± 0.00) slower
-Array#each          :  8126259.4 i/s - 1.36x  (± 0.00) slower
+Hash#select-include : 14983533.5 i/s
+Hash#native-slice   : 10494076.9 i/s - 1.43x  (± 0.00) slower
+Array#each_w/_object:  8627230.8 i/s - 1.74x  (± 0.00) slower
+Array#each          :  8538087.7 i/s - 1.75x  (± 0.00) slower
 
 $ ruby -v code/hash/values-include-vs-value.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-Hash#values.include?   168.000  i/100ms
-         Hash#value?   728.000  i/100ms
+Hash#values.include?   141.000  i/100ms
+         Hash#value?     1.211k i/100ms
 Calculating -------------------------------------
-Hash#values.include?      1.899k (±12.4%) i/s -      9.408k in   5.071906s
-         Hash#value?      7.420k (± 0.2%) i/s -     37.128k in   5.003836s
+Hash#values.include?      1.929k (±13.4%) i/s -      9.447k in   5.019516s
+         Hash#value?     12.018k (± 3.7%) i/s -     60.550k in   5.045661s
 
 Comparison:
-         Hash#value?:     7419.9 i/s
-Hash#values.include?:     1899.1 i/s - 3.91x  (± 0.00) slower
+         Hash#value?:    12017.8 i/s
+Hash#values.include?:     1928.9 i/s - 6.23x  (± 0.00) slower
 
 $ ruby -v code/method/call-vs-send-vs-method_missing.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-                call   199.510M i/100ms
-                send   199.225M i/100ms
-      method_missing   199.931M i/100ms
+                call   178.191M i/100ms
+                send   183.700M i/100ms
+      method_missing   187.976M i/100ms
 Calculating -------------------------------------
-                call      2.002B (± 0.8%) i/s -     10.175B in   5.082512s
-                send      1.997B (± 0.5%) i/s -     10.160B in   5.086761s
-      method_missing      1.998B (± 0.4%) i/s -      9.997B in   5.003137s
+                call      1.873B (± 3.0%) i/s -      9.444B in   5.048138s
+                send      1.864B (± 2.8%) i/s -      9.369B in   5.029758s
+      method_missing      1.786B (± 3.2%) i/s -      9.023B in   5.056680s
 
 Comparison:
-                call: 2002102139.9 i/s
-      method_missing: 1998093317.6 i/s - same-ish: difference falls within error
-                send: 1997474285.5 i/s - same-ish: difference falls within error
+                call: 1872581370.7 i/s
+                send: 1864152367.3 i/s - same-ish: difference falls within error
+      method_missing: 1786179997.9 i/s - same-ish: difference falls within error
 
 $ ruby -v code/proc-and-block/block-vs-to_proc.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-               Block    17.844k i/100ms
-      Symbol#to_proc    18.856k i/100ms
+               Block    32.569k i/100ms
+      Symbol#to_proc    36.597k i/100ms
 Calculating -------------------------------------
-               Block    192.434k (± 4.5%) i/s -    963.576k in   5.018089s
-      Symbol#to_proc    192.395k (± 3.9%) i/s -    961.656k in   5.006460s
+               Block    402.517k (± 4.2%) i/s -      2.019M in   5.025922s
+      Symbol#to_proc    390.241k (± 4.9%) i/s -      1.976M in   5.077007s
 
 Comparison:
-               Block:   192434.2 i/s
-      Symbol#to_proc:   192394.9 i/s - same-ish: difference falls within error
+               Block:   402516.9 i/s
+      Symbol#to_proc:   390241.0 i/s - same-ish: difference falls within error
 
 $ ruby -v code/proc-and-block/proc-call-vs-yield.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-          block.call   199.740M i/100ms
-       block + yield   199.422M i/100ms
-        unused block   200.438M i/100ms
-               yield   201.019M i/100ms
+          block.call   190.087M i/100ms
+       block + yield   185.476M i/100ms
+        unused block   190.295M i/100ms
+               yield   183.574M i/100ms
 Calculating -------------------------------------
-          block.call      1.999B (± 0.5%) i/s -     10.187B in   5.097051s
-       block + yield      2.012B (± 0.8%) i/s -     10.171B in   5.056098s
-        unused block      2.007B (± 0.6%) i/s -     10.222B in   5.094558s
-               yield      1.998B (± 0.5%) i/s -     10.051B in   5.030425s
+          block.call      1.863B (± 3.6%) i/s -      9.314B in   5.005580s
+       block + yield      1.857B (± 3.3%) i/s -      9.274B in   5.000848s
+        unused block      1.864B (± 3.5%) i/s -      9.324B in   5.009424s
+               yield      1.857B (± 3.4%) i/s -      9.362B in   5.046817s
 
 Comparison:
-       block + yield: 2011659178.1 i/s
-        unused block: 2006601283.2 i/s - same-ish: difference falls within error
-          block.call: 1998612908.7 i/s - same-ish: difference falls within error
-               yield: 1998087053.7 i/s - same-ish: difference falls within error
+        unused block: 1863777328.6 i/s
+          block.call: 1863302992.5 i/s - same-ish: difference falls within error
+               yield: 1857428398.9 i/s - same-ish: difference falls within error
+       block + yield: 1856543316.1 i/s - same-ish: difference falls within error
 
 $ ruby -v code/range/cover-vs-include.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-        range#cover?    29.512k i/100ms
-      range#include?   181.000  i/100ms
-       range#member?   212.000  i/100ms
-       plain compare    28.575k i/100ms
+        range#cover?    33.920k i/100ms
+      range#include?   208.000  i/100ms
+       range#member?   436.000  i/100ms
+       plain compare    32.472k i/100ms
 Calculating -------------------------------------
-        range#cover?    277.352k (±31.7%) i/s -      1.269M in   5.085387s
-      range#include?      5.850k (±34.7%) i/s -     19.367k in   5.110264s
-       range#member?      5.504k (±37.1%) i/s -     13.780k in   5.208371s
-       plain compare    462.916k (±34.2%) i/s -      1.257M in   5.092304s
+        range#cover?    221.071k (±46.3%) i/s -    780.160k in   5.051510s
+      range#include?     10.122k (±38.4%) i/s -     30.784k in   5.034278s
+       range#member?     11.719k (±37.4%) i/s -     27.468k in   5.015572s
+       plain compare    395.735k (±35.2%) i/s -      1.169M in   5.054886s
 
 Comparison:
-       plain compare:   462916.0 i/s
-        range#cover?:   277352.2 i/s - same-ish: difference falls within error
-      range#include?:     5849.6 i/s - 79.14x  (± 0.00) slower
-       range#member?:     5504.4 i/s - 84.10x  (± 0.00) slower
+       plain compare:   395735.2 i/s
+        range#cover?:   221070.7 i/s - same-ish: difference falls within error
+       range#member?:    11718.8 i/s - 33.77x  (± 0.00) slower
+      range#include?:    10122.3 i/s - 39.10x  (± 0.00) slower
 
 $ ruby -v code/string/===-vs-=~-vs-match.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-       String#match?     3.439M i/100ms
-           String#=~     4.328M i/100ms
-          Regexp#===     4.322M i/100ms
-        String#match     3.980M i/100ms
+       String#match?     4.672M i/100ms
+           String#=~     6.772M i/100ms
+          Regexp#===     6.708M i/100ms
+        String#match     5.528M i/100ms
 Calculating -------------------------------------
-       String#match?     36.323M (± 4.1%) i/s -    182.292M in   5.027473s
-           String#=~     43.474M (± 0.7%) i/s -    220.707M in   5.077073s
-          Regexp#===     43.612M (± 0.8%) i/s -    220.429M in   5.054649s
-        String#match     39.660M (± 0.8%) i/s -    198.988M in   5.017632s
+       String#match?     54.819M (± 7.5%) i/s -    275.669M in   5.058428s
+           String#=~     68.904M (± 3.6%) i/s -    345.385M in   5.019146s
+          Regexp#===     67.444M (± 5.0%) i/s -    342.102M in   5.085258s
+        String#match     57.839M (± 3.4%) i/s -    292.962M in   5.071225s
 
 Comparison:
-          Regexp#===: 43611925.0 i/s
-           String#=~: 43473528.7 i/s - same-ish: difference falls within error
-        String#match: 39660356.5 i/s - 1.10x  (± 0.00) slower
-       String#match?: 36322550.6 i/s - 1.20x  (± 0.00) slower
+           String#=~: 68904089.0 i/s
+          Regexp#===: 67443971.0 i/s - same-ish: difference falls within error
+        String#match: 57838950.0 i/s - 1.19x  (± 0.00) slower
+       String#match?: 54819341.9 i/s - 1.26x  (± 0.00) slower
 
 $ ruby -v code/string/casecmp-vs-downcase-==.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-String#downcase + ==     1.126M i/100ms
-      String#casecmp     2.916M i/100ms
+String#downcase + ==     1.645M i/100ms
+      String#casecmp     3.056M i/100ms
 Calculating -------------------------------------
-String#downcase + ==     12.570M (± 4.6%) i/s -     63.076M in   5.029493s
-      String#casecmp     28.889M (± 0.9%) i/s -    145.814M in   5.047750s
+String#downcase + ==     17.684M (± 8.2%) i/s -     88.848M in   5.059222s
+      String#casecmp     33.079M (± 4.5%) i/s -    165.048M in   4.999501s
 
 Comparison:
-      String#casecmp: 28888966.1 i/s
-String#downcase + ==: 12569649.0 i/s - 2.30x  (± 0.00) slower
+      String#casecmp: 33079332.4 i/s
+String#downcase + ==: 17684333.3 i/s - 1.87x  (± 0.00) slower
 
 $ ruby -v code/string/concatenation.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-            String#+   200.754M i/100ms
-       String#concat   199.567M i/100ms
-       String#append   202.718M i/100ms
-         "foo" "bar"   202.328M i/100ms
-  "#{'foo'}#{'bar'}"   200.902M i/100ms
+            String#+   196.509M i/100ms
+       String#concat   197.784M i/100ms
+       String#append   194.454M i/100ms
+         "foo" "bar"   202.172M i/100ms
+  "#{'foo'}#{'bar'}"   195.906M i/100ms
 Calculating -------------------------------------
-            String#+      2.036B (± 1.0%) i/s -     10.238B in   5.028467s
-       String#concat      2.033B (± 1.1%) i/s -     10.178B in   5.007697s
-       String#append      2.040B (± 1.1%) i/s -     10.339B in   5.069242s
-         "foo" "bar"      2.024B (± 0.8%) i/s -     10.319B in   5.098316s
-  "#{'foo'}#{'bar'}"      2.035B (± 1.0%) i/s -     10.246B in   5.036629s
+            String#+      2.026B (± 5.0%) i/s -     10.218B in   5.056241s
+       String#concat      2.005B (± 5.3%) i/s -     10.087B in   5.046636s
+       String#append      1.873B (± 4.1%) i/s -      9.528B in   5.096109s
+         "foo" "bar"      1.875B (± 5.1%) i/s -      9.502B in   5.080398s
+  "#{'foo'}#{'bar'}"      1.802B (± 4.9%) i/s -      9.012B in   5.012967s
 
 Comparison:
-       String#append: 2039741035.3 i/s
-            String#+: 2036322348.1 i/s - same-ish: difference falls within error
-  "#{'foo'}#{'bar'}": 2034505061.3 i/s - same-ish: difference falls within error
-       String#concat: 2032689537.2 i/s - same-ish: difference falls within error
-         "foo" "bar": 2024078484.9 i/s - same-ish: difference falls within error
+            String#+: 2025890317.4 i/s
+       String#concat: 2004544046.0 i/s - same-ish: difference falls within error
+         "foo" "bar": 1875361171.4 i/s - same-ish: difference falls within error
+       String#append: 1872935477.1 i/s - same-ish: difference falls within error
+  "#{'foo'}#{'bar'}": 1802048002.8 i/s - 1.12x  (± 0.00) slower
 
 $ ruby -v code/string/dup-vs-unary-plus.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-           String#+@   202.277M i/100ms
-          String#dup   200.630M i/100ms
+           String#+@   177.264M i/100ms
+          String#dup   180.047M i/100ms
 Calculating -------------------------------------
-           String#+@      2.027B (± 1.1%) i/s -     10.316B in   5.090459s
-          String#dup      2.035B (± 1.0%) i/s -     10.232B in   5.028749s
+           String#+@      1.775B (± 3.0%) i/s -      8.863B in   4.999158s
+          String#dup      1.843B (± 4.3%) i/s -      9.362B in   5.087990s
 
 Comparison:
-          String#dup: 2034929194.2 i/s
-           String#+@: 2026807319.0 i/s - same-ish: difference falls within error
+          String#dup: 1843474537.9 i/s
+           String#+@: 1774629286.3 i/s - same-ish: difference falls within error
 
 $ ruby -v code/string/end-string-checking-match-vs-end_with.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-           String#=~     1.076M i/100ms
-       String#match?     1.137M i/100ms
-    String#end_with?    12.016M i/100ms
+           String#=~     1.286M i/100ms
+       String#match?     1.536M i/100ms
+    String#end_with?    14.972M i/100ms
 Calculating -------------------------------------
-           String#=~     10.811M (± 3.4%) i/s -     54.889M in   5.082992s
-       String#match?     11.381M (± 3.0%) i/s -     56.870M in   5.001383s
-    String#end_with?    122.237M (± 1.1%) i/s -    612.822M in   5.014038s
+           String#=~     11.238M (± 5.7%) i/s -     56.593M in   5.053481s
+       String#match?     14.367M (± 4.4%) i/s -     72.183M in   5.034658s
+    String#end_with?    143.818M (± 2.6%) i/s -    718.656M in   5.000256s
 
 Comparison:
-    String#end_with?: 122236572.5 i/s
-       String#match?: 11381357.4 i/s - 10.74x  (± 0.00) slower
-           String#=~: 10811088.9 i/s - 11.31x  (± 0.00) slower
+    String#end_with?: 143818352.1 i/s
+       String#match?: 14367123.8 i/s - 10.01x  (± 0.00) slower
+           String#=~: 11238410.6 i/s - 12.80x  (± 0.00) slower
 
 $ ruby -v code/string/gsub-vs-sub.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-         String#gsub    53.151k i/100ms
-          String#sub   388.582k i/100ms
+         String#gsub    49.445k i/100ms
+          String#sub   502.246k i/100ms
 String#dup["string"]=
-                        16.026M i/100ms
+                        19.290M i/100ms
 Calculating -------------------------------------
-         String#gsub    742.064k (± 4.4%) i/s -      3.721M in   5.025662s
-          String#sub      4.254M (± 6.9%) i/s -     21.372M in   5.049606s
+         String#gsub    926.946k (± 6.9%) i/s -      4.648M in   5.043260s
+          String#sub      6.051M (± 9.9%) i/s -     30.135M in   5.033124s
 String#dup["string"]=
-                        160.199M (± 1.2%) i/s -    801.290M in   5.002515s
+                        194.909M (± 5.5%) i/s -    983.809M in   5.062975s
 
 Comparison:
-String#dup["string"]=: 160199300.9 i/s
-          String#sub:  4254102.9 i/s - 37.66x  (± 0.00) slower
-         String#gsub:   742063.8 i/s - 215.88x  (± 0.00) slower
+String#dup["string"]=: 194909000.2 i/s
+          String#sub:  6050943.9 i/s - 32.21x  (± 0.00) slower
+         String#gsub:   926946.1 i/s - 210.27x  (± 0.00) slower
 
 $ ruby -v code/string/gsub-vs-tr.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-         String#gsub   142.598k i/100ms
-           String#tr   117.019k i/100ms
+         String#gsub   127.900k i/100ms
+           String#tr   120.212k i/100ms
 Calculating -------------------------------------
-         String#gsub      1.744M (± 5.0%) i/s -      8.698M in   5.000517s
-           String#tr      1.185M (± 4.4%) i/s -      5.968M in   5.044704s
+         String#gsub      2.102M (± 8.3%) i/s -     10.488M in   5.026679s
+           String#tr    876.766k (±29.4%) i/s -      3.967M in   5.056677s
 
 Comparison:
-         String#gsub:  1744272.8 i/s
-           String#tr:  1185395.9 i/s - 1.47x  (± 0.00) slower
+         String#gsub:  2102409.8 i/s
+           String#tr:   876766.2 i/s - 2.40x  (± 0.00) slower
 
 $ ruby -v code/string/mutable_vs_immutable_strings.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-      Without Freeze   201.096M i/100ms
-         With Freeze   201.551M i/100ms
+      Without Freeze   179.503M i/100ms
+         With Freeze   198.514M i/100ms
 Calculating -------------------------------------
-      Without Freeze      2.045B (± 1.1%) i/s -     10.256B in   5.016045s
-         With Freeze      2.038B (± 1.3%) i/s -     10.279B in   5.045135s
+      Without Freeze      2.057B (± 4.1%) i/s -     10.411B in   5.071161s
+         With Freeze      2.073B (± 5.1%) i/s -     10.521B in   5.089261s
 
 Comparison:
-      Without Freeze: 2044875588.8 i/s
-         With Freeze: 2037780111.0 i/s - same-ish: difference falls within error
+         With Freeze: 2072917600.6 i/s
+      Without Freeze: 2056511726.5 i/s - same-ish: difference falls within error
 
 $ ruby -v code/string/remove-extra-spaces-or-other-chars.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
- String#gsub/regex+/     4.603k i/100ms
-      String#squeeze    52.095k i/100ms
+ String#gsub/regex+/     7.660k i/100ms
+      String#squeeze    59.067k i/100ms
 Calculating -------------------------------------
- String#gsub/regex+/     64.346k (± 5.1%) i/s -    322.210k in   5.021283s
-      String#squeeze    515.728k (± 2.7%) i/s -      2.605M in   5.054726s
+ String#gsub/regex+/    114.033k (± 9.4%) i/s -    566.840k in   5.017284s
+      String#squeeze    568.556k (± 5.3%) i/s -      2.835M in   5.000883s
 
 Comparison:
-      String#squeeze:   515727.5 i/s
- String#gsub/regex+/:    64346.4 i/s - 8.01x  (± 0.00) slower
+      String#squeeze:   568556.3 i/s
+ String#gsub/regex+/:   114033.3 i/s - 4.99x  (± 0.00) slower
 
 $ ruby -v code/string/start-string-checking-match-vs-start_with.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-           String#=~     2.177M i/100ms
-       String#match?     2.561M i/100ms
-  String#start_with?     1.425M i/100ms
+           String#=~     3.151M i/100ms
+       String#match?     3.487M i/100ms
+  String#start_with?     1.826M i/100ms
 Calculating -------------------------------------
-           String#=~     22.302M (± 2.7%) i/s -    113.194M in   5.079324s
-       String#match?     26.122M (± 3.1%) i/s -    130.593M in   5.004520s
-  String#start_with?     14.614M (± 3.4%) i/s -     74.083M in   5.075446s
+           String#=~     32.553M (± 5.6%) i/s -    163.835M in   5.050275s
+       String#match?     35.289M (± 7.1%) i/s -    177.834M in   5.066395s
+  String#start_with?     19.431M (± 6.3%) i/s -     96.777M in   5.001200s
 
 Comparison:
-       String#match?: 26121755.6 i/s
-           String#=~: 22302239.9 i/s - 1.17x  (± 0.00) slower
-  String#start_with?: 14613938.2 i/s - 1.79x  (± 0.00) slower
+       String#match?: 35288571.8 i/s
+           String#=~: 32552988.7 i/s - same-ish: difference falls within error
+  String#start_with?: 19430906.1 i/s - 1.82x  (± 0.00) slower
 
 $ ruby -v code/string/start_with-vs-substring-==.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-  String#start_with?   247.387k i/100ms
-    String#[0, n] ==   157.181k i/100ms
-   String#[RANGE] ==   174.498k i/100ms
-   String#[0...n] ==   132.786k i/100ms
+  String#start_with?   182.577k i/100ms
+    String#[0, n] ==   196.843k i/100ms
+   String#[RANGE] ==   221.217k i/100ms
+   String#[0...n] ==   167.644k i/100ms
 Calculating -------------------------------------
-  String#start_with?      2.842M (± 4.1%) i/s -     14.348M in   5.057556s
-    String#[0, n] ==      1.602M (± 4.5%) i/s -      8.016M in   5.013287s
-   String#[RANGE] ==      1.746M (± 5.0%) i/s -      8.725M in   5.009456s
-   String#[0...n] ==      1.368M (± 5.5%) i/s -      6.905M in   5.065358s
+  String#start_with?      3.138M (± 6.3%) i/s -     15.702M in   5.025305s
+    String#[0, n] ==      1.887M (± 7.5%) i/s -      9.448M in   5.035541s
+   String#[RANGE] ==      2.012M (± 6.8%) i/s -     10.176M in   5.082581s
+   String#[0...n] ==      1.543M (± 6.5%) i/s -      7.712M in   5.018774s
 
 Comparison:
-  String#start_with?:  2842415.3 i/s
-   String#[RANGE] ==:  1746402.9 i/s - 1.63x  (± 0.00) slower
-    String#[0, n] ==:  1602450.0 i/s - 1.77x  (± 0.00) slower
-   String#[0...n] ==:  1367711.8 i/s - 2.08x  (± 0.00) slower
+  String#start_with?:  3137632.9 i/s
+   String#[RANGE] ==:  2011766.3 i/s - 1.56x  (± 0.00) slower
+    String#[0, n] ==:  1887338.3 i/s - 1.66x  (± 0.00) slower
+   String#[0...n] ==:  1543269.4 i/s - 2.03x  (± 0.00) slower
 
 $ ruby -v code/string/sub!-vs-gsub!-vs-[]=.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-  String#['string']=    16.731M i/100ms
- String#sub!'string'   415.859k i/100ms
-String#gsub!'string'    73.644k i/100ms
-  String#[/regexp/]=     3.338M i/100ms
- String#sub!/regexp/     1.638M i/100ms
-String#gsub!/regexp/   426.535k i/100ms
+  String#['string']=    18.093M i/100ms
+ String#sub!'string'   685.957k i/100ms
+String#gsub!'string'    90.890k i/100ms
+  String#[/regexp/]=     4.450M i/100ms
+ String#sub!/regexp/     2.186M i/100ms
+String#gsub!/regexp/   561.915k i/100ms
 Calculating -------------------------------------
-  String#['string']=    165.648M (± 0.5%) i/s -    836.544M in   5.050248s
- String#sub!'string'      4.958M (±15.9%) i/s -     22.456M in   5.011539s
-String#gsub!'string'    841.743k (± 3.1%) i/s -      4.271M in   5.080085s
-  String#[/regexp/]=     32.845M (± 0.6%) i/s -    166.909M in   5.081825s
- String#sub!/regexp/     16.790M (± 3.3%) i/s -     85.181M in   5.079300s
-String#gsub!/regexp/      4.338M (± 5.4%) i/s -     21.753M in   5.030956s
+  String#['string']=    192.881M (± 5.1%) i/s -    977.042M in   5.079042s
+ String#sub!'string'      6.741M (±17.7%) i/s -     30.182M in   5.005955s
+String#gsub!'string'    972.389k (± 4.9%) i/s -      4.908M in   5.059744s
+  String#[/regexp/]=     45.080M (± 4.2%) i/s -    226.952M in   5.043798s
+ String#sub!/regexp/     25.294M (±11.1%) i/s -    122.398M in   5.002403s
+String#gsub!/regexp/      5.619M (± 7.9%) i/s -     28.096M in   5.033515s
 
 Comparison:
-  String#['string']=: 165648002.1 i/s
-  String#[/regexp/]=: 32845276.8 i/s - 5.04x  (± 0.00) slower
- String#sub!/regexp/: 16790479.3 i/s - 9.87x  (± 0.00) slower
- String#sub!'string':  4958236.9 i/s - 33.41x  (± 0.00) slower
-String#gsub!/regexp/:  4337671.1 i/s - 38.19x  (± 0.00) slower
-String#gsub!'string':   841743.3 i/s - 196.79x  (± 0.00) slower
+  String#['string']=: 192881427.3 i/s
+  String#[/regexp/]=: 45080032.9 i/s - 4.28x  (± 0.00) slower
+ String#sub!/regexp/: 25293903.4 i/s - 7.63x  (± 0.00) slower
+ String#sub!'string':  6741122.6 i/s - 28.61x  (± 0.00) slower
+String#gsub!/regexp/:  5618633.3 i/s - 34.33x  (± 0.00) slower
+String#gsub!'string':   972388.6 i/s - 198.36x  (± 0.00) slower
 
 $ ruby -v code/string/sub-vs-chomp-vs-delete_suffix.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-          String#sub     1.597M i/100ms
-        String#chomp     2.479M i/100ms
-String#delete_suffix     4.810M i/100ms
+          String#sub     1.234M i/100ms
+        String#chomp     4.227M i/100ms
+String#delete_suffix     5.876M i/100ms
 Calculating -------------------------------------
-          String#sub     16.579M (± 3.8%) i/s -     83.022M in   5.015540s
-        String#chomp     25.467M (± 3.4%) i/s -    128.916M in   5.068498s
-String#delete_suffix     48.915M (± 1.0%) i/s -    245.307M in   5.015461s
+          String#sub     27.681M (± 8.7%) i/s -    138.157M in   5.034357s
+        String#chomp     47.624M (± 7.6%) i/s -    240.966M in   5.091208s
+String#delete_suffix     61.504M (± 4.6%) i/s -    311.445M in   5.074613s
 
 Comparison:
-String#delete_suffix: 48915168.7 i/s
-        String#chomp: 25466742.1 i/s - 1.92x  (± 0.00) slower
-          String#sub: 16578594.9 i/s - 2.95x  (± 0.00) slower
+String#delete_suffix: 61504302.1 i/s
+        String#chomp: 47623906.5 i/s - 1.29x  (± 0.00) slower
+          String#sub: 27680945.4 i/s - 2.22x  (± 0.00) slower
 
 $ ruby -v code/string/sub-vs-delete_prefix.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-String#delete_prefix     1.671M i/100ms
-          String#sub     6.072M i/100ms
+String#delete_prefix     2.382M i/100ms
+          String#sub     8.504M i/100ms
 Calculating -------------------------------------
-String#delete_prefix     17.790M (± 3.8%) i/s -     90.219M in   5.079222s
-          String#sub     61.069M (± 1.2%) i/s -    309.695M in   5.071894s
+String#delete_prefix     24.674M (± 7.6%) i/s -    123.867M in   5.049872s
+          String#sub     84.509M (± 6.0%) i/s -    425.204M in   5.051355s
 
 Comparison:
-          String#sub: 61069378.7 i/s
-String#delete_prefix: 17789620.4 i/s - 3.43x  (± 0.00) slower
+          String#sub: 84508730.6 i/s
+String#delete_prefix: 24674331.5 i/s - 3.42x  (± 0.00) slower
 
 $ ruby -v code/string/unpack1-vs-unpack[0].rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-      String#unpack1     1.174M i/100ms
-    String#unpack[0]     1.248M i/100ms
+      String#unpack1     1.372M i/100ms
+    String#unpack[0]     1.487M i/100ms
 Calculating -------------------------------------
-      String#unpack1     12.097M (± 3.5%) i/s -     61.037M in   5.052028s
-    String#unpack[0]     12.195M (± 3.4%) i/s -     61.170M in   5.021988s
+      String#unpack1     14.735M (± 7.1%) i/s -     74.084M in   5.053515s
+    String#unpack[0]     14.669M (± 4.8%) i/s -     74.372M in   5.082073s
 
 Comparison:
-    String#unpack[0]: 12195429.0 i/s
-      String#unpack1: 12096831.8 i/s - same-ish: difference falls within error
+      String#unpack1: 14735133.6 i/s
+    String#unpack[0]: 14668556.6 i/s - same-ish: difference falls within error
 
 $ ruby -v code/time/iso8601-vs-parse.rb
-truffleruby 22.2.0-dev-5c7903e0, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
+truffleruby 22.2.0-dev-049f00cc, like ruby 3.0.3, GraalVM CE Native [x86_64-linux]
 Warming up --------------------------------------
-        Time.iso8601    13.245k i/100ms
-          Time.parse   136.000  i/100ms
+        Time.iso8601    11.283k i/100ms
+          Time.parse     5.000  i/100ms
 Calculating -------------------------------------
-        Time.iso8601    112.725k (±35.1%) i/s -    490.065k in   5.028703s
-          Time.parse      3.242k (±24.3%) i/s -     14.688k in   4.999537s
+        Time.iso8601    113.865k (±16.7%) i/s -    541.584k in   5.014941s
+          Time.parse      2.112k (±19.1%) i/s -      9.110k in   4.973506s
 
 Comparison:
-        Time.iso8601:   112725.4 i/s
-          Time.parse:     3241.9 i/s - 34.77x  (± 0.00) slower
+        Time.iso8601:   113865.0 i/s
+          Time.parse:     2112.4 i/s - 53.90x  (± 0.00) slower
 
