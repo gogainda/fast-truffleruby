@@ -27,9 +27,10 @@ jobs:
       - name: Commit files
         id: commit
         run: |
+          git pull
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
-          git add .
+          git add *.fastruby
           if [-z "$(git status --porcelain)"]; then
              echo "::set-output name=push::false"
           else
