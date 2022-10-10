@@ -2,7 +2,7 @@ name: CI
 
 on:
   push:
-    branches: [master ]
+    branches: [master]
   schedule: 
     - cron: "0 13 * * 1" 
 
@@ -13,7 +13,7 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        ruby: [truffleruby-head]
+        ruby: [truffleruby-head, '3.1']
 
     steps:
       - uses: actions/checkout@v2
@@ -23,13 +23,13 @@ jobs:
           bundler-cache: true
       - name: Test
         continue-on-error: ${{ matrix.experimental }}
-        run: BENCHMARK_IPS_FORCE_WARMUP=10 bundle exec rake > runs.log
+        run: BENCHMARK_IPS_FORCE_WARMUP=10 bundle exec rake > $(ruby -e'puts "#{RUBY_ENGINE}-#{RUBY_VERSION}.fastruby"')
       - name: Commit files
         id: commit
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "github-actions"
-          git add runs.log
+          git add .
           if [-z "$(git status --porcelain)"]; then
              echo "::set-output name=push::false"
           else
