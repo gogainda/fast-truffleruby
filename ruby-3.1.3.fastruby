@@ -2,142 +2,142 @@ $ ruby -v code/general/array-argument-vs-splat-arguments.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
 Function with single Array argument
-                       592.367k i/100ms
+                       453.464k i/100ms
 Function with splat arguments
-                        23.515k i/100ms
+                         7.685k i/100ms
 Calculating -------------------------------------
 Function with single Array argument
-                          5.857M (± 3.1%) i/s -     29.618M in   5.062719s
+                          4.589M (± 4.5%) i/s -     23.127M in   5.049424s
 Function with splat arguments
-                        231.201k (± 5.3%) i/s -      1.152M in   5.004861s
+                         82.522k (±18.8%) i/s -    399.620k in   5.020742s
 
 Comparison:
-Function with single Array argument:  5856661.0 i/s
-Function with splat arguments:   231201.3 i/s - 25.33x  (± 0.00) slower
+Function with single Array argument:  4589317.9 i/s
+Function with splat arguments:    82522.5 i/s - 55.61x  (± 0.00) slower
 
 $ ruby -v code/general/assignment.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
- Parallel Assignment   900.175k i/100ms
+ Parallel Assignment   763.124k i/100ms
 Sequential Assignment
-                       878.596k i/100ms
+                       791.647k i/100ms
 Calculating -------------------------------------
- Parallel Assignment      9.000M (± 0.1%) i/s -     45.009M in   5.000849s
+ Parallel Assignment      7.503M (± 3.8%) i/s -     38.156M in   5.093371s
 Sequential Assignment
-                          8.754M (± 0.1%) i/s -     43.930M in   5.018213s
+                          7.746M (± 5.5%) i/s -     38.791M in   5.023234s
 
 Comparison:
- Parallel Assignment:  9000224.2 i/s
-Sequential Assignment:  8754079.5 i/s - 1.03x  (± 0.00) slower
+Sequential Assignment:  7745556.1 i/s
+ Parallel Assignment:  7502794.3 i/s - same-ish: difference falls within error
 
 $ ruby -v code/general/attr-accessor-vs-getter-and-setter.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-   getter_and_setter   375.994k i/100ms
-       attr_accessor   428.638k i/100ms
+   getter_and_setter   277.098k i/100ms
+       attr_accessor   299.540k i/100ms
 Calculating -------------------------------------
-   getter_and_setter      3.776M (± 0.2%) i/s -     19.176M in   5.077710s
-       attr_accessor      4.344M (± 0.5%) i/s -     21.861M in   5.032068s
+   getter_and_setter      2.780M (± 6.0%) i/s -     13.855M in   5.002449s
+       attr_accessor      3.144M (± 4.8%) i/s -     15.876M in   5.061143s
 
 Comparison:
-       attr_accessor:  4344357.4 i/s
-   getter_and_setter:  3776462.1 i/s - 1.15x  (± 0.00) slower
+       attr_accessor:  3144322.9 i/s
+   getter_and_setter:  2780166.2 i/s - 1.13x  (± 0.00) slower
 
 $ ruby -v code/general/begin-rescue-vs-respond-to.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-      begin...rescue    67.247k i/100ms
-         respond_to?   586.194k i/100ms
+      begin...rescue    52.418k i/100ms
+         respond_to?   452.110k i/100ms
 Calculating -------------------------------------
-      begin...rescue    668.351k (± 1.1%) i/s -      3.362M in   5.031410s
-         respond_to?      5.857M (± 0.2%) i/s -     29.310M in   5.004107s
+      begin...rescue    588.362k (± 5.1%) i/s -      2.935M in   5.002182s
+         respond_to?      4.706M (± 4.9%) i/s -     23.510M in   5.008166s
 
 Comparison:
-         respond_to?:  5857145.1 i/s
-      begin...rescue:   668351.3 i/s - 8.76x  (± 0.00) slower
+         respond_to?:  4705807.9 i/s
+      begin...rescue:   588361.7 i/s - 8.00x  (± 0.00) slower
 
 $ ruby -v code/general/block-apply-method.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-              normal   241.363k i/100ms
-             &method    87.833k i/100ms
+              normal   180.517k i/100ms
+             &method    70.196k i/100ms
 Calculating -------------------------------------
-              normal      2.415M (± 0.1%) i/s -     12.310M in   5.097985s
-             &method    878.290k (± 0.1%) i/s -      4.392M in   5.000237s
+              normal      1.866M (± 4.9%) i/s -      9.387M in   5.043907s
+             &method    708.409k (± 4.0%) i/s -      3.580M in   5.061845s
 
 Comparison:
-              normal:  2414585.2 i/s
-             &method:   878289.8 i/s - 2.75x  (± 0.00) slower
+              normal:  1865781.3 i/s
+             &method:   708408.8 i/s - 2.63x  (± 0.00) slower
 
 $ ruby -v code/general/define_method-vs-module-eval.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
 module_eval with string
-                       204.000  i/100ms
-       define_method   276.000  i/100ms
+                       144.000  i/100ms
+       define_method   199.000  i/100ms
 Calculating -------------------------------------
 module_eval with string
-                          2.003k (±20.3%) i/s -      9.180k in   5.113342s
-       define_method      2.620k (±15.9%) i/s -     12.420k in   5.078283s
+                          1.370k (±17.4%) i/s -      6.336k in   5.006172s
+       define_method      1.801k (±18.0%) i/s -      8.358k in   5.102583s
 
 Comparison:
-       define_method:     2620.4 i/s
-module_eval with string:     2003.1 i/s - same-ish: difference falls within error
+       define_method:     1801.4 i/s
+module_eval with string:     1369.6 i/s - same-ish: difference falls within error
 
 $ ruby -v code/general/format-vs-round-and-to-s.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-         Float#round   140.224k i/100ms
-       Kernel#format   153.869k i/100ms
-            String#%   135.378k i/100ms
+         Float#round   108.101k i/100ms
+       Kernel#format   117.845k i/100ms
+            String#%   101.853k i/100ms
 Calculating -------------------------------------
-         Float#round      1.401M (± 0.1%) i/s -      7.011M in   5.003257s
-       Kernel#format      1.540M (± 0.1%) i/s -      7.847M in   5.095891s
-            String#%      1.365M (± 0.1%) i/s -      6.904M in   5.057696s
+         Float#round      1.149M (± 5.7%) i/s -      5.837M in   5.098996s
+       Kernel#format      1.272M (± 5.2%) i/s -      6.364M in   5.014882s
+            String#%      1.100M (± 5.2%) i/s -      5.500M in   5.015314s
 
 Comparison:
-       Kernel#format:  1539933.4 i/s
-         Float#round:  1401327.5 i/s - 1.10x  (± 0.00) slower
-            String#%:  1365105.9 i/s - 1.13x  (± 0.00) slower
+       Kernel#format:  1272404.3 i/s
+         Float#round:  1148618.3 i/s - same-ish: difference falls within error
+            String#%:  1099587.4 i/s - 1.16x  (± 0.00) slower
 
 $ ruby -v code/general/hash-vs-openstruct-on-access.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-                Hash   695.953k i/100ms
-          OpenStruct   369.502k i/100ms
+                Hash   565.901k i/100ms
+          OpenStruct   278.160k i/100ms
 Calculating -------------------------------------
-                Hash      6.958M (± 0.1%) i/s -     34.798M in   5.001354s
-          OpenStruct      3.690M (± 0.1%) i/s -     18.475M in   5.007233s
+                Hash      5.497M (± 3.9%) i/s -     27.729M in   5.052013s
+          OpenStruct      2.844M (± 3.6%) i/s -     14.464M in   5.092594s
 
 Comparison:
-                Hash:  6957654.1 i/s
-          OpenStruct:  3689690.1 i/s - 1.89x  (± 0.00) slower
+                Hash:  5496900.0 i/s
+          OpenStruct:  2843933.1 i/s - 1.93x  (± 0.00) slower
 
 $ ruby -v code/general/hash-vs-openstruct.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-                Hash   895.569k i/100ms
-          OpenStruct     8.689k i/100ms
+                Hash   705.677k i/100ms
+          OpenStruct     6.155k i/100ms
 Calculating -------------------------------------
-                Hash      9.608M (± 0.2%) i/s -     48.361M in   5.033597s
-          OpenStruct     87.499k (± 2.3%) i/s -    443.139k in   5.067366s
+                Hash      7.456M (± 4.7%) i/s -     37.401M in   5.026805s
+          OpenStruct     62.918k (± 5.5%) i/s -    313.905k in   5.004507s
 
 Comparison:
-                Hash:  9607611.9 i/s
-          OpenStruct:    87498.6 i/s - 109.80x  (± 0.00) slower
+                Hash:  7456387.5 i/s
+          OpenStruct:    62918.3 i/s - 118.51x  (± 0.00) slower
 
 $ ruby -v code/general/inheritance-check.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-  less than or equal   477.709k i/100ms
-  ancestors.include?    92.142k i/100ms
+  less than or equal   399.733k i/100ms
+  ancestors.include?    70.511k i/100ms
 Calculating -------------------------------------
-  less than or equal      4.789M (± 0.2%) i/s -     24.363M in   5.087726s
-  ancestors.include?    919.171k (± 0.1%) i/s -      4.607M in   5.012243s
+  less than or equal      3.954M (± 4.5%) i/s -     19.987M in   5.064917s
+  ancestors.include?    711.329k (± 4.5%) i/s -      3.596M in   5.065897s
 
 Comparison:
-  less than or equal:  4788629.9 i/s
-  ancestors.include?:   919171.4 i/s - 5.21x  (± 0.00) slower
+  less than or equal:  3954361.9 i/s
+  ancestors.include?:   711328.6 i/s - 5.56x  (± 0.00) slower
 
 $ ruby -v code/general/loop-vs-while-true.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
@@ -145,778 +145,778 @@ Warming up --------------------------------------
           While Loop     1.000  i/100ms
          Kernel loop     1.000  i/100ms
 Calculating -------------------------------------
-          While Loop      0.456  (± 0.0%) i/s -      3.000  in   6.583102s
-         Kernel loop      0.179  (± 0.0%) i/s -      1.000  in   5.582735s
+          While Loop      0.490  (± 0.0%) i/s -      3.000  in   6.121174s
+         Kernel loop      0.138  (± 0.0%) i/s -      1.000  in   7.241706s
 
 Comparison:
           While Loop:        0.5 i/s
-         Kernel loop:        0.2 i/s - 2.54x  (± 0.00) slower
+         Kernel loop:        0.1 i/s - 3.55x  (± 0.00) slower
 
 $ ruby -v code/general/raise-vs-e2mmap.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 $ ruby -v code/array/array-first-vs-index.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-           Array#[0]     1.165M i/100ms
-         Array#first     1.055M i/100ms
+           Array#[0]     1.053M i/100ms
+         Array#first   911.005k i/100ms
 Calculating -------------------------------------
-           Array#[0]     11.656M (± 0.1%) i/s -     59.417M in   5.097443s
-         Array#first     10.549M (± 0.1%) i/s -     52.753M in   5.000743s
+           Array#[0]     10.626M (± 5.2%) i/s -     53.679M in   5.065307s
+         Array#first      9.313M (± 5.2%) i/s -     46.461M in   5.002311s
 
 Comparison:
-           Array#[0]: 11656220.3 i/s
-         Array#first: 10549025.7 i/s - 1.10x  (± 0.00) slower
+           Array#[0]: 10626211.0 i/s
+         Array#first:  9312523.7 i/s - 1.14x  (± 0.00) slower
 
 $ ruby -v code/array/array-last-vs-index.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-          Array#[-1]     1.303M i/100ms
-          Array#last     1.096M i/100ms
+          Array#[-1]     1.047M i/100ms
+          Array#last   974.863k i/100ms
 Calculating -------------------------------------
-          Array#[-1]     13.005M (± 0.4%) i/s -     65.141M in   5.009085s
-          Array#last     10.952M (± 0.3%) i/s -     54.779M in   5.001880s
+          Array#[-1]     10.733M (± 3.9%) i/s -     54.450M in   5.081184s
+          Array#last      9.747M (± 5.0%) i/s -     48.743M in   5.013445s
 
 Comparison:
-          Array#[-1]: 13004819.2 i/s
-          Array#last: 10951853.0 i/s - 1.19x  (± 0.00) slower
+          Array#[-1]: 10733369.1 i/s
+          Array#last:  9746988.4 i/s - 1.10x  (± 0.00) slower
 
 $ ruby -v code/array/bsearch-vs-find.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
                 find     1.000  i/100ms
-             bsearch    75.890k i/100ms
+             bsearch    50.986k i/100ms
 Calculating -------------------------------------
-                find      0.204  (± 0.0%) i/s -      2.000  in   9.787302s
-             bsearch    759.109k (± 0.1%) i/s -      3.870M in   5.098598s
+                find      0.159  (± 0.0%) i/s -      1.000  in   6.275600s
+             bsearch    508.545k (± 5.2%) i/s -      2.549M in   5.026471s
 
 Comparison:
-             bsearch:   759108.9 i/s
-                find:        0.2 i/s - 3714813.19x  (± 0.00) slower
+             bsearch:   508544.6 i/s
+                find:        0.2 i/s - 3191422.18x  (± 0.00) slower
 
 $ ruby -v code/array/insert-vs-unshift.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-       Array#unshift    14.000  i/100ms
+       Array#unshift    10.000  i/100ms
         Array#insert     1.000  i/100ms
 Calculating -------------------------------------
-       Array#unshift    146.816  (± 2.7%) i/s -    742.000  in   5.057274s
-        Array#insert      1.151  (± 0.0%) i/s -      6.000  in   5.214479s
+       Array#unshift    105.952  (± 5.7%) i/s -    530.000  in   5.020823s
+        Array#insert      0.424  (± 0.0%) i/s -      3.000  in   7.075847s
 
 Comparison:
-       Array#unshift:      146.8 i/s
-        Array#insert:        1.2 i/s - 127.59x  (± 0.00) slower
+       Array#unshift:      106.0 i/s
+        Array#insert:        0.4 i/s - 249.87x  (± 0.00) slower
 
 $ ruby -v code/array/length-vs-size-vs-count.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-        Array#length     1.895M i/100ms
-          Array#size     1.898M i/100ms
-         Array#count     1.311M i/100ms
+        Array#length     1.475M i/100ms
+          Array#size     1.466M i/100ms
+         Array#count     1.135M i/100ms
 Calculating -------------------------------------
-        Array#length     18.911M (± 0.7%) i/s -     94.734M in   5.009613s
-          Array#size     18.954M (± 0.7%) i/s -     94.892M in   5.006732s
-         Array#count     13.159M (± 0.2%) i/s -     66.884M in   5.082909s
+        Array#length     15.156M (± 4.9%) i/s -     76.706M in   5.074177s
+          Array#size     14.845M (± 4.0%) i/s -     74.749M in   5.043628s
+         Array#count     11.295M (± 3.3%) i/s -     56.773M in   5.031860s
 
 Comparison:
-          Array#size: 18953701.0 i/s
-        Array#length: 18911256.6 i/s - same-ish: difference falls within error
-         Array#count: 13158668.0 i/s - 1.44x  (± 0.00) slower
+        Array#length: 15155511.0 i/s
+          Array#size: 14844644.4 i/s - same-ish: difference falls within error
+         Array#count: 11295177.8 i/s - 1.34x  (± 0.00) slower
 
 $ ruby -v code/array/shuffle-first-vs-sample.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
- Array#shuffle.first    34.112k i/100ms
-        Array#sample   827.848k i/100ms
+ Array#shuffle.first    27.020k i/100ms
+        Array#sample   684.018k i/100ms
 Calculating -------------------------------------
- Array#shuffle.first    340.029k (± 0.6%) i/s -      1.706M in   5.016254s
-        Array#sample      8.269M (± 0.0%) i/s -     41.392M in   5.005897s
+ Array#shuffle.first    275.853k (± 4.4%) i/s -      1.378M in   5.004795s
+        Array#sample      6.710M (± 5.0%) i/s -     33.517M in   5.008511s
 
 Comparison:
-        Array#sample:  8268728.3 i/s
- Array#shuffle.first:   340028.6 i/s - 24.32x  (± 0.00) slower
+        Array#sample:  6709628.6 i/s
+ Array#shuffle.first:   275852.9 i/s - 24.32x  (± 0.00) slower
 
 $ ruby -v code/date/iso8601-vs-parse.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-        Date.iso8601    48.437k i/100ms
-          Date.parse    23.713k i/100ms
+        Date.iso8601    38.489k i/100ms
+          Date.parse    17.960k i/100ms
 Calculating -------------------------------------
-        Date.iso8601    485.082k (± 0.4%) i/s -      2.470M in   5.092602s
-          Date.parse    238.266k (± 0.6%) i/s -      1.209M in   5.075887s
+        Date.iso8601    389.058k (± 4.0%) i/s -      1.963M in   5.053752s
+          Date.parse    174.182k (± 3.9%) i/s -    880.040k in   5.059824s
 
 Comparison:
-        Date.iso8601:   485081.7 i/s
-          Date.parse:   238265.5 i/s - 2.04x  (± 0.00) slower
+        Date.iso8601:   389057.6 i/s
+          Date.parse:   174182.1 i/s - 2.23x  (± 0.00) slower
 
 $ ruby -v code/enumerable/each-push-vs-map.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-   Array#each + push    14.378k i/100ms
-           Array#map    20.407k i/100ms
+   Array#each + push     9.838k i/100ms
+           Array#map    14.358k i/100ms
 Calculating -------------------------------------
-   Array#each + push    144.333k (± 0.5%) i/s -    733.278k in   5.080564s
-           Array#map    208.450k (± 0.4%) i/s -      1.061M in   5.090799s
+   Array#each + push     98.481k (± 3.2%) i/s -    501.738k in   5.100188s
+           Array#map    145.155k (± 4.1%) i/s -    732.258k in   5.053292s
 
 Comparison:
-           Array#map:   208450.3 i/s
-   Array#each + push:   144333.0 i/s - 1.44x  (± 0.00) slower
+           Array#map:   145155.5 i/s
+   Array#each + push:    98481.2 i/s - 1.47x  (± 0.00) slower
 
 $ ruby -v code/enumerable/each-vs-for-loop.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-            For loop    22.147k i/100ms
-               #each    24.463k i/100ms
+            For loop    16.379k i/100ms
+               #each    17.563k i/100ms
 Calculating -------------------------------------
-            For loop    221.296k (± 0.3%) i/s -      1.107M in   5.003981s
-               #each    244.582k (± 0.1%) i/s -      1.223M in   5.000984s
+            For loop    163.593k (± 2.8%) i/s -    818.950k in   5.009872s
+               #each    177.805k (± 3.8%) i/s -    895.713k in   5.044803s
 
 Comparison:
-               #each:   244582.0 i/s
-            For loop:   221295.5 i/s - 1.11x  (± 0.00) slower
+               #each:   177805.0 i/s
+            For loop:   163592.5 i/s - 1.09x  (± 0.00) slower
 
 $ ruby -v code/enumerable/each_with_index-vs-while-loop.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-          While Loop    24.567k i/100ms
-     each_with_index    14.745k i/100ms
+          While Loop    22.531k i/100ms
+     each_with_index    10.597k i/100ms
 Calculating -------------------------------------
-          While Loop    245.625k (± 0.1%) i/s -      1.228M in   5.000919s
-     each_with_index    147.625k (± 0.1%) i/s -    751.995k in   5.093970s
+          While Loop    229.398k (± 4.0%) i/s -      1.149M in   5.017274s
+     each_with_index    108.535k (± 4.0%) i/s -    551.044k in   5.085109s
 
 Comparison:
-          While Loop:   245624.9 i/s
-     each_with_index:   147624.7 i/s - 1.66x  (± 0.00) slower
+          While Loop:   229398.3 i/s
+     each_with_index:   108535.3 i/s - 2.11x  (± 0.00) slower
 
 $ ruby -v code/enumerable/inject-symbol-vs-block.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-       inject symbol    68.205k i/100ms
-      inject to_proc     1.725k i/100ms
-        inject block     1.582k i/100ms
+       inject symbol    60.093k i/100ms
+      inject to_proc     1.263k i/100ms
+        inject block     1.139k i/100ms
 Calculating -------------------------------------
-       inject symbol    671.046k (± 2.8%) i/s -      3.410M in   5.085983s
-      inject to_proc     17.272k (± 0.2%) i/s -     87.975k in   5.093455s
-        inject block     15.835k (± 0.2%) i/s -     80.682k in   5.095046s
+       inject symbol    594.275k (± 3.8%) i/s -      3.005M in   5.063171s
+      inject to_proc     12.262k (± 3.9%) i/s -     61.887k in   5.055759s
+        inject block     11.278k (± 3.5%) i/s -     56.950k in   5.056057s
 
 Comparison:
-       inject symbol:   671046.2 i/s
-      inject to_proc:    17272.2 i/s - 38.85x  (± 0.00) slower
-        inject block:    15835.5 i/s - 42.38x  (± 0.00) slower
+       inject symbol:   594275.0 i/s
+      inject to_proc:    12262.0 i/s - 48.46x  (± 0.00) slower
+        inject block:    11277.8 i/s - 52.69x  (± 0.00) slower
 
 $ ruby -v code/enumerable/map-flatten-vs-flat_map.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-Array#map.flatten(1)     5.578k i/100ms
-   Array#map.flatten     3.013k i/100ms
-      Array#flat_map     7.340k i/100ms
+Array#map.flatten(1)     4.031k i/100ms
+   Array#map.flatten     2.096k i/100ms
+      Array#flat_map     4.952k i/100ms
 Calculating -------------------------------------
-Array#map.flatten(1)     55.802k (± 0.4%) i/s -    284.478k in   5.098099s
-   Array#map.flatten     30.379k (± 0.4%) i/s -    153.663k in   5.058218s
-      Array#flat_map     73.032k (± 0.3%) i/s -    367.000k in   5.025209s
+Array#map.flatten(1)     40.640k (± 3.5%) i/s -    205.581k in   5.064955s
+   Array#map.flatten     21.631k (± 3.1%) i/s -    108.992k in   5.043742s
+      Array#flat_map     51.355k (± 2.7%) i/s -    257.504k in   5.017922s
 
 Comparison:
-      Array#flat_map:    73032.5 i/s
-Array#map.flatten(1):    55801.8 i/s - 1.31x  (± 0.00) slower
-   Array#map.flatten:    30379.5 i/s - 2.40x  (± 0.00) slower
+      Array#flat_map:    51355.4 i/s
+Array#map.flatten(1):    40640.3 i/s - 1.26x  (± 0.00) slower
+   Array#map.flatten:    21630.9 i/s - 2.37x  (± 0.00) slower
 
 $ ruby -v code/enumerable/reverse-each-vs-reverse_each.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-  Array#reverse.each    23.818k i/100ms
-  Array#reverse_each    24.394k i/100ms
+  Array#reverse.each    17.133k i/100ms
+  Array#reverse_each    18.231k i/100ms
 Calculating -------------------------------------
-  Array#reverse.each    238.247k (± 0.1%) i/s -      1.215M in   5.098582s
-  Array#reverse_each    243.956k (± 0.1%) i/s -      1.244M in   5.099670s
+  Array#reverse.each    169.689k (± 3.1%) i/s -    856.650k in   5.053286s
+  Array#reverse_each    176.460k (± 3.3%) i/s -    893.319k in   5.068158s
 
 Comparison:
-  Array#reverse_each:   243956.0 i/s
-  Array#reverse.each:   238246.7 i/s - 1.02x  (± 0.00) slower
+  Array#reverse_each:   176459.9 i/s
+  Array#reverse.each:   169688.6 i/s - same-ish: difference falls within error
 
 $ ruby -v code/enumerable/select-first-vs-detect.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
 Enumerable#select.first
-                        15.690k i/100ms
-   Enumerable#detect    60.849k i/100ms
+                        11.448k i/100ms
+   Enumerable#detect    46.052k i/100ms
 Calculating -------------------------------------
 Enumerable#select.first
-                        156.317k (± 0.5%) i/s -      3.138M in  20.075033s
-   Enumerable#detect    607.148k (± 0.2%) i/s -     12.170M in  20.044278s
+                        112.816k (± 2.7%) i/s -      2.255M in  20.005647s
+   Enumerable#detect    451.026k (± 4.0%) i/s -      9.026M in  20.044560s
 
 Comparison:
-   Enumerable#detect:   607147.7 i/s
-Enumerable#select.first:   156316.9 i/s - 3.88x  (± 0.00) slower
+   Enumerable#detect:   451025.9 i/s
+Enumerable#select.first:   112816.4 i/s - 4.00x  (± 0.00) slower
 
 $ ruby -v code/enumerable/select-last-vs-reverse-detect.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
 Enumerable#reverse.detect
-                       179.011k i/100ms
+                       133.126k i/100ms
 Enumerable#select.last
-                        14.760k i/100ms
+                         9.628k i/100ms
 Calculating -------------------------------------
 Enumerable#reverse.detect
-                          1.778M (± 0.6%) i/s -      8.951M in   5.034357s
+                          1.360M (± 4.9%) i/s -      6.789M in   5.004910s
 Enumerable#select.last
-                        147.960k (± 0.5%) i/s -    752.760k in   5.087712s
+                         98.575k (± 3.9%) i/s -    500.656k in   5.086608s
 
 Comparison:
-Enumerable#reverse.detect:  1777953.0 i/s
-Enumerable#select.last:   147960.2 i/s - 12.02x  (± 0.00) slower
+Enumerable#reverse.detect:  1359864.7 i/s
+Enumerable#select.last:    98574.8 i/s - 13.80x  (± 0.00) slower
 
 $ ruby -v code/enumerable/sort-vs-sort_by.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
 Enumerable#sort_by (Symbol#to_proc)
-                         3.893k i/100ms
-  Enumerable#sort_by     3.681k i/100ms
-     Enumerable#sort     1.905k i/100ms
+                         2.670k i/100ms
+  Enumerable#sort_by     2.432k i/100ms
+     Enumerable#sort     1.268k i/100ms
 Calculating -------------------------------------
 Enumerable#sort_by (Symbol#to_proc)
-                         38.833k (± 0.5%) i/s -    194.650k in   5.012648s
-  Enumerable#sort_by     36.813k (± 0.4%) i/s -    187.731k in   5.099631s
-     Enumerable#sort     19.068k (± 0.2%) i/s -     97.155k in   5.095271s
+                         25.265k (± 4.7%) i/s -    128.160k in   5.083981s
+  Enumerable#sort_by     24.034k (± 6.5%) i/s -    121.600k in   5.081915s
+     Enumerable#sort     12.460k (± 5.4%) i/s -     62.132k in   5.001636s
 
 Comparison:
-Enumerable#sort_by (Symbol#to_proc):    38832.6 i/s
-  Enumerable#sort_by:    36813.3 i/s - 1.05x  (± 0.00) slower
-     Enumerable#sort:    19067.7 i/s - 2.04x  (± 0.00) slower
+Enumerable#sort_by (Symbol#to_proc):    25265.5 i/s
+  Enumerable#sort_by:    24034.4 i/s - same-ish: difference falls within error
+     Enumerable#sort:    12460.4 i/s - 2.03x  (± 0.00) slower
 
 $ ruby -v code/enumerable/sort_by-first-vs-min_by.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-   Enumerable#min_by    13.010k i/100ms
+   Enumerable#min_by     9.725k i/100ms
 Enumerable#sort_by...first
-                         6.716k i/100ms
+                         4.715k i/100ms
 Calculating -------------------------------------
-   Enumerable#min_by    130.133k (± 0.1%) i/s -    663.510k in   5.098693s
+   Enumerable#min_by     97.731k (± 3.2%) i/s -    495.975k in   5.080214s
 Enumerable#sort_by...first
-                         66.831k (± 1.0%) i/s -    335.800k in   5.025084s
+                         46.002k (± 4.5%) i/s -    231.035k in   5.032787s
 
 Comparison:
-   Enumerable#min_by:   130133.4 i/s
-Enumerable#sort_by...first:    66831.1 i/s - 1.95x  (± 0.00) slower
+   Enumerable#min_by:    97730.8 i/s
+Enumerable#sort_by...first:    46001.6 i/s - 2.12x  (± 0.00) slower
 
 $ ruby -v code/hash/bracket-vs-dup.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-              Hash[]   297.000k i/100ms
-            Hash#dup   241.547k i/100ms
+              Hash[]   196.978k i/100ms
+            Hash#dup   154.197k i/100ms
 Calculating -------------------------------------
-              Hash[]      2.887M (± 1.7%) i/s -     14.553M in   5.043022s
-            Hash#dup      2.326M (± 0.4%) i/s -     11.836M in   5.089092s
+              Hash[]      1.827M (± 7.5%) i/s -      9.258M in   5.095022s
+            Hash#dup      1.317M (± 6.7%) i/s -      6.630M in   5.060499s
 
 Comparison:
-              Hash[]:  2886568.4 i/s
-            Hash#dup:  2325762.0 i/s - 1.24x  (± 0.00) slower
+              Hash[]:  1827038.2 i/s
+            Hash#dup:  1316537.6 i/s - 1.39x  (± 0.00) slower
 
 $ ruby -v code/hash/bracket-vs-fetch.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-     Hash#[], symbol     1.161M i/100ms
-  Hash#fetch, symbol   942.630k i/100ms
-     Hash#[], string   946.706k i/100ms
-  Hash#fetch, string   613.944k i/100ms
+     Hash#[], symbol   992.260k i/100ms
+  Hash#fetch, symbol   732.622k i/100ms
+     Hash#[], string   805.451k i/100ms
+  Hash#fetch, string   453.804k i/100ms
 Calculating -------------------------------------
-     Hash#[], symbol     11.603M (± 0.4%) i/s -     58.069M in   5.004494s
-  Hash#fetch, symbol      9.397M (± 1.6%) i/s -     47.132M in   5.017064s
-     Hash#[], string      9.477M (± 0.1%) i/s -     48.282M in   5.094549s
-  Hash#fetch, string      6.137M (± 0.1%) i/s -     30.697M in   5.001942s
+     Hash#[], symbol      9.785M (± 3.4%) i/s -     49.613M in   5.076254s
+  Hash#fetch, symbol      7.380M (± 5.1%) i/s -     37.364M in   5.075965s
+     Hash#[], string      7.698M (± 5.2%) i/s -     38.662M in   5.036950s
+  Hash#fetch, string      4.412M (± 4.3%) i/s -     22.236M in   5.049817s
 
 Comparison:
-     Hash#[], symbol: 11603473.6 i/s
-     Hash#[], string:  9477202.4 i/s - 1.22x  (± 0.00) slower
-  Hash#fetch, symbol:  9396894.8 i/s - 1.23x  (± 0.00) slower
-  Hash#fetch, string:  6137059.9 i/s - 1.89x  (± 0.00) slower
+     Hash#[], symbol:  9785074.1 i/s
+     Hash#[], string:  7697523.1 i/s - 1.27x  (± 0.00) slower
+  Hash#fetch, symbol:  7380437.3 i/s - 1.33x  (± 0.00) slower
+  Hash#fetch, string:  4411872.6 i/s - 2.22x  (± 0.00) slower
 
 $ ruby -v code/hash/dig-vs-[]-vs-fetch.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-            Hash#dig   734.944k i/100ms
-             Hash#[]   761.397k i/100ms
-          Hash#[] ||   701.036k i/100ms
-          Hash#[] &&   325.124k i/100ms
-          Hash#fetch   498.275k i/100ms
- Hash#fetch fallback   310.264k i/100ms
+            Hash#dig   542.640k i/100ms
+             Hash#[]   645.058k i/100ms
+          Hash#[] ||   576.821k i/100ms
+          Hash#[] &&   253.583k i/100ms
+          Hash#fetch   396.610k i/100ms
+ Hash#fetch fallback   220.757k i/100ms
 Calculating -------------------------------------
-            Hash#dig      7.368M (± 0.6%) i/s -     37.482M in   5.087024s
-             Hash#[]      7.561M (± 0.7%) i/s -     38.070M in   5.035519s
-          Hash#[] ||      6.993M (± 0.9%) i/s -     35.052M in   5.012496s
-          Hash#[] &&      3.249M (± 0.3%) i/s -     16.256M in   5.003087s
-          Hash#fetch      4.963M (± 0.4%) i/s -     24.914M in   5.020436s
- Hash#fetch fallback      3.105M (± 0.6%) i/s -     15.823M in   5.095556s
+            Hash#dig      5.550M (± 3.6%) i/s -     28.217M in   5.090651s
+             Hash#[]      6.523M (± 3.7%) i/s -     32.898M in   5.050659s
+          Hash#[] ||      5.999M (± 3.0%) i/s -     29.995M in   5.004747s
+          Hash#[] &&      2.626M (± 3.8%) i/s -     13.186M in   5.028240s
+          Hash#fetch      3.865M (± 4.2%) i/s -     19.434M in   5.037636s
+ Hash#fetch fallback      2.178M (± 5.5%) i/s -     11.038M in   5.084915s
 
 Comparison:
-             Hash#[]:  7560614.7 i/s
-            Hash#dig:  7368472.1 i/s - 1.03x  (± 0.00) slower
-          Hash#[] ||:  6993444.6 i/s - 1.08x  (± 0.00) slower
-          Hash#fetch:  4962545.3 i/s - 1.52x  (± 0.00) slower
-          Hash#[] &&:  3249268.5 i/s - 2.33x  (± 0.00) slower
- Hash#fetch fallback:  3105467.0 i/s - 2.43x  (± 0.00) slower
+             Hash#[]:  6523367.4 i/s
+          Hash#[] ||:  5998896.2 i/s - 1.09x  (± 0.00) slower
+            Hash#dig:  5550329.5 i/s - 1.18x  (± 0.00) slower
+          Hash#fetch:  3864660.5 i/s - 1.69x  (± 0.00) slower
+          Hash#[] &&:  2626449.5 i/s - 2.48x  (± 0.00) slower
+ Hash#fetch fallback:  2177623.9 i/s - 3.00x  (± 0.00) slower
 
 $ ruby -v code/hash/fetch-vs-fetch-with-block.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-  Hash#fetch + const     1.191M i/100ms
-  Hash#fetch + block     1.147M i/100ms
-    Hash#fetch + arg   853.917k i/100ms
+  Hash#fetch + const   931.059k i/100ms
+  Hash#fetch + block   929.003k i/100ms
+    Hash#fetch + arg   623.428k i/100ms
 Calculating -------------------------------------
-  Hash#fetch + const     11.908M (± 0.5%) i/s -     59.557M in   5.001533s
-  Hash#fetch + block     11.477M (± 0.1%) i/s -     58.495M in   5.096924s
-    Hash#fetch + arg      8.532M (± 0.5%) i/s -     42.696M in   5.004446s
+  Hash#fetch + const      8.951M (± 5.5%) i/s -     44.691M in   5.008589s
+  Hash#fetch + block      8.914M (± 3.8%) i/s -     45.521M in   5.114736s
+    Hash#fetch + arg      6.531M (± 3.8%) i/s -     33.042M in   5.066839s
 
 Comparison:
-  Hash#fetch + const: 11908047.4 i/s
-  Hash#fetch + block: 11476514.2 i/s - 1.04x  (± 0.00) slower
-    Hash#fetch + arg:  8531768.8 i/s - 1.40x  (± 0.00) slower
+  Hash#fetch + const:  8950681.7 i/s
+  Hash#fetch + block:  8913820.4 i/s - same-ish: difference falls within error
+    Hash#fetch + arg:  6530779.9 i/s - 1.37x  (± 0.00) slower
 
 $ ruby -v code/hash/hash-key-sort_by-vs-sort.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-      sort_by + to_h    20.245k i/100ms
-         sort + to_h     8.732k i/100ms
+      sort_by + to_h    14.592k i/100ms
+         sort + to_h     6.050k i/100ms
 Calculating -------------------------------------
-      sort_by + to_h    203.585k (± 0.7%) i/s -      1.032M in   5.071835s
-         sort + to_h     87.670k (± 0.1%) i/s -    445.332k in   5.079640s
+      sort_by + to_h    141.808k (± 5.0%) i/s -    715.008k in   5.055021s
+         sort + to_h     61.237k (± 4.9%) i/s -    308.550k in   5.051009s
 
 Comparison:
-      sort_by + to_h:   203585.0 i/s
-         sort + to_h:    87670.1 i/s - 2.32x  (± 0.00) slower
+      sort_by + to_h:   141808.2 i/s
+         sort + to_h:    61236.6 i/s - 2.32x  (± 0.00) slower
 
 $ ruby -v code/hash/keys-each-vs-each_key.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-      Hash#keys.each   152.101k i/100ms
-       Hash#each_key   163.040k i/100ms
+      Hash#keys.each   105.476k i/100ms
+       Hash#each_key   109.905k i/100ms
 Calculating -------------------------------------
-      Hash#keys.each      1.530M (± 0.3%) i/s -      7.757M in   5.070101s
-       Hash#each_key      1.628M (± 0.1%) i/s -      8.152M in   5.008324s
+      Hash#keys.each      1.037M (± 4.8%) i/s -      5.274M in   5.098811s
+       Hash#each_key      1.091M (± 5.6%) i/s -      5.495M in   5.053285s
 
 Comparison:
-       Hash#each_key:  1627690.8 i/s
-      Hash#keys.each:  1529991.7 i/s - 1.06x  (± 0.00) slower
+       Hash#each_key:  1091072.1 i/s
+      Hash#keys.each:  1036716.9 i/s - same-ish: difference falls within error
 
 $ ruby -v code/hash/keys-include-vs-key.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-  Hash#keys.include?   995.000  i/100ms
-           Hash#key?   765.549k i/100ms
+  Hash#keys.include?   988.000  i/100ms
+           Hash#key?   563.958k i/100ms
 Calculating -------------------------------------
-  Hash#keys.include?      9.677k (± 4.3%) i/s -     48.755k in   5.048225s
-           Hash#key?      7.512M (± 0.1%) i/s -     38.277M in   5.095367s
+  Hash#keys.include?      9.420k (± 7.0%) i/s -     47.424k in   5.065452s
+           Hash#key?      5.561M (± 4.9%) i/s -     28.198M in   5.083430s
 
 Comparison:
-           Hash#key?:  7512208.6 i/s
-  Hash#keys.include?:     9677.3 i/s - 776.27x  (± 0.00) slower
+           Hash#key?:  5560503.1 i/s
+  Hash#keys.include?:     9419.7 i/s - 590.30x  (± 0.00) slower
 
 $ ruby -v code/hash/merge-bang-vs-[]=.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-         Hash#merge!     3.098k i/100ms
-            Hash#[]=     7.556k i/100ms
+         Hash#merge!     2.315k i/100ms
+            Hash#[]=     5.339k i/100ms
 Calculating -------------------------------------
-         Hash#merge!     30.929k (± 0.4%) i/s -    154.900k in   5.008411s
-            Hash#[]=     76.306k (± 1.1%) i/s -    385.356k in   5.050710s
+         Hash#merge!     23.227k (± 4.9%) i/s -    118.065k in   5.095833s
+            Hash#[]=     52.583k (± 4.5%) i/s -    266.950k in   5.087440s
 
 Comparison:
-            Hash#[]=:    76306.4 i/s
-         Hash#merge!:    30928.6 i/s - 2.47x  (± 0.00) slower
+            Hash#[]=:    52583.1 i/s
+         Hash#merge!:    23227.3 i/s - 2.26x  (± 0.00) slower
 
 $ ruby -v code/hash/merge-bang-vs-merge-vs-dup-merge-bang.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
 {}#merge!(Hash) do end
-                         3.689k i/100ms
-      Hash#merge({})     2.940k i/100ms
- Hash#dup#merge!({})     2.122k i/100ms
+                         2.869k i/100ms
+      Hash#merge({})     2.244k i/100ms
+ Hash#dup#merge!({})     1.677k i/100ms
 Calculating -------------------------------------
 {}#merge!(Hash) do end
-                         37.094k (± 0.1%) i/s -    188.139k in   5.071909s
-      Hash#merge({})     29.365k (± 0.1%) i/s -    147.000k in   5.005886s
- Hash#dup#merge!({})     21.075k (± 0.1%) i/s -    106.100k in   5.034506s
+                         27.403k (± 6.0%) i/s -    137.712k in   5.044456s
+      Hash#merge({})     21.830k (± 5.9%) i/s -    109.956k in   5.056124s
+ Hash#dup#merge!({})     16.005k (± 6.0%) i/s -     80.496k in   5.048484s
 
 Comparison:
-{}#merge!(Hash) do end:    37094.4 i/s
-      Hash#merge({}):    29365.5 i/s - 1.26x  (± 0.00) slower
- Hash#dup#merge!({}):    21074.6 i/s - 1.76x  (± 0.00) slower
+{}#merge!(Hash) do end:    27402.6 i/s
+      Hash#merge({}):    21829.8 i/s - 1.26x  (± 0.00) slower
+ Hash#dup#merge!({}):    16004.6 i/s - 1.71x  (± 0.00) slower
 
 $ ruby -v code/hash/merge-vs-double-splat-operator.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-        Hash#**other   286.963k i/100ms
-          Hash#merge   257.453k i/100ms
+        Hash#**other   219.161k i/100ms
+          Hash#merge   196.417k i/100ms
 Calculating -------------------------------------
-        Hash#**other      2.878M (± 0.4%) i/s -     14.635M in   5.084479s
-          Hash#merge      2.575M (± 0.7%) i/s -     13.130M in   5.099382s
+        Hash#**other      2.172M (± 4.8%) i/s -     10.958M in   5.056304s
+          Hash#merge      1.962M (± 4.1%) i/s -      9.821M in   5.014850s
 
 Comparison:
-        Hash#**other:  2878439.6 i/s
-          Hash#merge:  2574961.9 i/s - 1.12x  (± 0.00) slower
+        Hash#**other:  2172206.7 i/s
+          Hash#merge:  1961701.6 i/s - 1.11x  (± 0.00) slower
 
 $ ruby -v code/hash/merge-vs-merge-bang.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-          Hash#merge     1.230k i/100ms
-         Hash#merge!     3.025k i/100ms
+          Hash#merge   764.000  i/100ms
+         Hash#merge!     2.278k i/100ms
 Calculating -------------------------------------
-          Hash#merge     12.353k (± 1.7%) i/s -     62.730k in   5.079622s
-         Hash#merge!     30.318k (± 0.3%) i/s -    154.275k in   5.088638s
+          Hash#merge      8.027k (± 6.4%) i/s -     40.492k in   5.065576s
+         Hash#merge!     22.746k (± 3.3%) i/s -    113.900k in   5.013020s
 
 Comparison:
-         Hash#merge!:    30317.9 i/s
-          Hash#merge:    12353.0 i/s - 2.45x  (± 0.00) slower
+         Hash#merge!:    22745.7 i/s
+          Hash#merge:     8027.1 i/s - 2.83x  (± 0.00) slower
 
 $ ruby -v code/hash/slice-native-vs-before-native.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-Hash#native-slice      328.111k i/100ms
-Array#each             170.947k i/100ms
-Array#each_w/_object   118.041k i/100ms
-Hash#select-include     56.032k i/100ms
+Hash#native-slice      240.034k i/100ms
+Array#each             128.408k i/100ms
+Array#each_w/_object    94.476k i/100ms
+Hash#select-include     36.956k i/100ms
 Calculating -------------------------------------
-Hash#native-slice         3.277M (± 0.1%) i/s -     16.406M in   5.005646s
-Array#each                1.685M (± 4.1%) i/s -      8.547M in   5.082399s
-Array#each_w/_object      1.213M (± 1.4%) i/s -      6.138M in   5.061175s
-Hash#select-include     557.848k (± 1.1%) i/s -      2.802M in   5.022840s
+Hash#native-slice         2.394M (± 4.8%) i/s -     12.002M in   5.026302s
+Array#each                1.262M (± 5.8%) i/s -      6.420M in   5.105331s
+Array#each_w/_object    921.889k (± 4.8%) i/s -      4.629M in   5.033012s
+Hash#select-include     383.532k (± 5.6%) i/s -      1.922M in   5.027004s
 
 Comparison:
-Hash#native-slice   :  3277413.4 i/s
-Array#each          :  1685065.5 i/s - 1.94x  (± 0.00) slower
-Array#each_w/_object:  1213014.7 i/s - 2.70x  (± 0.00) slower
-Hash#select-include :   557847.6 i/s - 5.88x  (± 0.00) slower
+Hash#native-slice   :  2393503.5 i/s
+Array#each          :  1262002.8 i/s - 1.90x  (± 0.00) slower
+Array#each_w/_object:   921889.1 i/s - 2.60x  (± 0.00) slower
+Hash#select-include :   383531.8 i/s - 6.24x  (± 0.00) slower
 
 $ ruby -v code/hash/values-include-vs-value.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-Hash#values.include?     2.007k i/100ms
-         Hash#value?     2.000k i/100ms
+Hash#values.include?   780.000  i/100ms
+         Hash#value?   782.000  i/100ms
 Calculating -------------------------------------
-Hash#values.include?     19.851k (± 5.1%) i/s -    100.350k in   5.071074s
-         Hash#value?     19.991k (± 0.3%) i/s -    100.000k in   5.002397s
+Hash#values.include?      7.666k (± 5.2%) i/s -     39.000k in   5.102120s
+         Hash#value?      7.867k (± 4.6%) i/s -     39.882k in   5.081327s
 
 Comparison:
-         Hash#value?:    19990.6 i/s
-Hash#values.include?:    19850.9 i/s - same-ish: difference falls within error
+         Hash#value?:     7866.6 i/s
+Hash#values.include?:     7665.8 i/s - same-ish: difference falls within error
 
 $ ruby -v code/method/call-vs-send-vs-method_missing.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-                call   525.145k i/100ms
-                send   409.495k i/100ms
-      method_missing   296.775k i/100ms
+                call   398.294k i/100ms
+                send   311.732k i/100ms
+      method_missing   221.145k i/100ms
 Calculating -------------------------------------
-                call      5.352M (± 0.4%) i/s -     26.782M in   5.004633s
-                send      4.129M (± 0.2%) i/s -     20.884M in   5.057387s
-      method_missing      2.969M (± 0.1%) i/s -     15.136M in   5.098183s
+                call      3.833M (± 4.9%) i/s -     19.516M in   5.103841s
+                send      2.837M (± 5.3%) i/s -     14.340M in   5.068977s
+      method_missing      2.163M (± 4.9%) i/s -     10.836M in   5.022191s
 
 Comparison:
-                call:  5351592.3 i/s
-                send:  4129474.1 i/s - 1.30x  (± 0.00) slower
-      method_missing:  2968810.4 i/s - 1.80x  (± 0.00) slower
+                call:  3832907.7 i/s
+                send:  2836735.3 i/s - 1.35x  (± 0.00) slower
+      method_missing:  2163303.3 i/s - 1.77x  (± 0.00) slower
 
 $ ruby -v code/proc-and-block/block-vs-to_proc.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-               Block     6.935k i/100ms
-      Symbol#to_proc     7.650k i/100ms
+               Block     4.462k i/100ms
+      Symbol#to_proc     4.687k i/100ms
 Calculating -------------------------------------
-               Block     68.330k (± 0.7%) i/s -    346.750k in   5.074956s
-      Symbol#to_proc     75.931k (± 0.3%) i/s -    382.500k in   5.037515s
+               Block     42.786k (± 3.8%) i/s -    214.176k in   5.013025s
+      Symbol#to_proc     45.840k (± 5.4%) i/s -    229.663k in   5.025017s
 
 Comparison:
-      Symbol#to_proc:    75931.1 i/s
-               Block:    68329.5 i/s - 1.11x  (± 0.00) slower
+      Symbol#to_proc:    45839.6 i/s
+               Block:    42786.2 i/s - same-ish: difference falls within error
 
 $ ruby -v code/proc-and-block/proc-call-vs-yield.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-          block.call   772.356k i/100ms
-       block + yield   819.646k i/100ms
-        unused block     1.092M i/100ms
-               yield   999.710k i/100ms
+          block.call   579.149k i/100ms
+       block + yield   663.093k i/100ms
+        unused block   845.708k i/100ms
+               yield   838.662k i/100ms
 Calculating -------------------------------------
-          block.call      7.742M (± 0.2%) i/s -     39.390M in   5.087841s
-       block + yield      8.175M (± 0.2%) i/s -     40.982M in   5.013131s
-        unused block     10.932M (± 0.3%) i/s -     55.709M in   5.096052s
-               yield     10.000M (± 0.1%) i/s -     50.985M in   5.098659s
+          block.call      6.028M (± 4.7%) i/s -     30.695M in   5.103768s
+       block + yield      6.421M (± 4.5%) i/s -     32.492M in   5.070600s
+        unused block      8.317M (± 4.3%) i/s -     42.285M in   5.093918s
+               yield      8.125M (± 3.9%) i/s -     41.094M in   5.065501s
 
 Comparison:
-        unused block: 10931937.5 i/s
-               yield:  9999742.9 i/s - 1.09x  (± 0.00) slower
-       block + yield:  8175016.4 i/s - 1.34x  (± 0.00) slower
-          block.call:  7742036.6 i/s - 1.41x  (± 0.00) slower
+        unused block:  8317248.8 i/s
+               yield:  8125212.0 i/s - same-ish: difference falls within error
+       block + yield:  6420856.9 i/s - 1.30x  (± 0.00) slower
+          block.call:  6028132.6 i/s - 1.38x  (± 0.00) slower
 
 $ ruby -v code/range/cover-vs-include.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-        range#cover?   243.504k i/100ms
-      range#include?     9.376k i/100ms
-       range#member?     9.373k i/100ms
-       plain compare   346.171k i/100ms
+        range#cover?   178.631k i/100ms
+      range#include?     7.260k i/100ms
+       range#member?     7.147k i/100ms
+       plain compare   265.754k i/100ms
 Calculating -------------------------------------
-        range#cover?      2.424M (± 1.8%) i/s -     12.175M in   5.024167s
-      range#include?     93.155k (± 0.9%) i/s -    468.800k in   5.032877s
-       range#member?     93.555k (± 0.7%) i/s -    468.650k in   5.009561s
-       plain compare      3.496M (± 0.8%) i/s -     17.655M in   5.050933s
+        range#cover?      1.774M (± 4.7%) i/s -      8.932M in   5.045796s
+      range#include?     70.406k (± 4.5%) i/s -    355.740k in   5.063198s
+       range#member?     69.421k (± 4.7%) i/s -    350.203k in   5.056080s
+       plain compare      2.538M (± 4.5%) i/s -     12.756M in   5.037538s
 
 Comparison:
-       plain compare:  3495549.7 i/s
-        range#cover?:  2424143.0 i/s - 1.44x  (± 0.00) slower
-       range#member?:    93555.2 i/s - 37.36x  (± 0.00) slower
-      range#include?:    93155.3 i/s - 37.52x  (± 0.00) slower
+       plain compare:  2537743.5 i/s
+        range#cover?:  1774155.3 i/s - 1.43x  (± 0.00) slower
+      range#include?:    70406.0 i/s - 36.04x  (± 0.00) slower
+       range#member?:    69421.3 i/s - 36.56x  (± 0.00) slower
 
 $ ruby -v code/string/===-vs-=~-vs-match.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-       String#match?   754.855k i/100ms
-           String#=~   495.179k i/100ms
-          Regexp#===   447.807k i/100ms
-        String#match   347.434k i/100ms
+       String#match?   529.557k i/100ms
+           String#=~   337.223k i/100ms
+          Regexp#===   328.337k i/100ms
+        String#match   278.426k i/100ms
 Calculating -------------------------------------
-       String#match?      7.546M (± 0.1%) i/s -     37.743M in   5.001927s
-           String#=~      4.945M (± 0.1%) i/s -     24.759M in   5.007149s
-          Regexp#===      4.469M (± 0.2%) i/s -     22.390M in   5.010011s
-        String#match      3.475M (± 0.2%) i/s -     17.719M in   5.099443s
+       String#match?      5.677M (± 3.6%) i/s -     28.596M in   5.044258s
+           String#=~      3.564M (± 4.2%) i/s -     17.873M in   5.024235s
+          Regexp#===      3.347M (± 3.3%) i/s -     16.745M in   5.008969s
+        String#match      2.682M (± 4.0%) i/s -     13.643M in   5.095804s
 
 Comparison:
-       String#match?:  7545649.2 i/s
-           String#=~:  4944730.0 i/s - 1.53x  (± 0.00) slower
-          Regexp#===:  4469147.6 i/s - 1.69x  (± 0.00) slower
-        String#match:  3474730.2 i/s - 2.17x  (± 0.00) slower
+       String#match?:  5676545.3 i/s
+           String#=~:  3563861.2 i/s - 1.59x  (± 0.00) slower
+          Regexp#===:  3346698.1 i/s - 1.70x  (± 0.00) slower
+        String#match:  2681613.2 i/s - 2.12x  (± 0.00) slower
 
 $ ruby -v code/string/casecmp-vs-downcase-==.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-String#downcase + ==   503.420k i/100ms
-      String#casecmp   611.715k i/100ms
+String#downcase + ==   347.941k i/100ms
+      String#casecmp   471.418k i/100ms
 Calculating -------------------------------------
-String#downcase + ==      5.045M (± 0.3%) i/s -     25.674M in   5.089522s
-      String#casecmp      6.097M (± 0.5%) i/s -     30.586M in   5.016805s
+String#downcase + ==      3.473M (± 4.8%) i/s -     17.397M in   5.020940s
+      String#casecmp      4.595M (± 5.9%) i/s -     23.099M in   5.045721s
 
 Comparison:
-      String#casecmp:  6096802.7 i/s
-String#downcase + ==:  5044618.0 i/s - 1.21x  (± 0.00) slower
+      String#casecmp:  4594812.4 i/s
+String#downcase + ==:  3473167.4 i/s - 1.32x  (± 0.00) slower
 
 $ ruby -v code/string/concatenation.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-            String#+   461.453k i/100ms
-       String#concat   462.018k i/100ms
-       String#append   521.461k i/100ms
-         "foo" "bar"     1.001M i/100ms
-  "#{'foo'}#{'bar'}"   993.460k i/100ms
+            String#+   327.437k i/100ms
+       String#concat   338.950k i/100ms
+       String#append   378.290k i/100ms
+         "foo" "bar"   776.080k i/100ms
+  "#{'foo'}#{'bar'}"   758.489k i/100ms
 Calculating -------------------------------------
-            String#+      4.608M (± 0.8%) i/s -     23.073M in   5.006951s
-       String#concat      4.612M (± 0.1%) i/s -     23.101M in   5.009106s
-       String#append      5.209M (± 0.2%) i/s -     26.073M in   5.005569s
-         "foo" "bar"      9.985M (± 0.2%) i/s -     50.038M in   5.011389s
-  "#{'foo'}#{'bar'}"      9.957M (± 0.3%) i/s -     50.666M in   5.088648s
+            String#+      3.272M (± 4.5%) i/s -     16.372M in   5.014158s
+       String#concat      3.358M (± 4.2%) i/s -     16.948M in   5.056238s
+       String#append      3.873M (± 3.5%) i/s -     19.671M in   5.085780s
+         "foo" "bar"      7.493M (± 4.1%) i/s -     38.028M in   5.084336s
+  "#{'foo'}#{'bar'}"      7.721M (± 3.8%) i/s -     38.683M in   5.017415s
 
 Comparison:
-         "foo" "bar":  9984813.6 i/s
-  "#{'foo'}#{'bar'}":  9956879.1 i/s - same-ish: difference falls within error
-       String#append:  5208832.7 i/s - 1.92x  (± 0.00) slower
-       String#concat:  4611789.2 i/s - 2.17x  (± 0.00) slower
-            String#+:  4608412.9 i/s - 2.17x  (± 0.00) slower
+  "#{'foo'}#{'bar'}":  7721382.8 i/s
+         "foo" "bar":  7492709.6 i/s - same-ish: difference falls within error
+       String#append:  3872611.5 i/s - 1.99x  (± 0.00) slower
+       String#concat:  3358072.3 i/s - 2.30x  (± 0.00) slower
+            String#+:  3272020.0 i/s - 2.36x  (± 0.00) slower
 
 $ ruby -v code/string/dup-vs-unary-plus.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-           String#+@   784.285k i/100ms
-          String#dup   434.896k i/100ms
+           String#+@   654.575k i/100ms
+          String#dup   324.298k i/100ms
 Calculating -------------------------------------
-           String#+@      7.837M (± 0.2%) i/s -     39.214M in   5.003912s
-          String#dup      4.346M (± 0.1%) i/s -     21.745M in   5.003462s
+           String#+@      6.494M (± 4.5%) i/s -     32.729M in   5.050226s
+          String#dup      3.170M (± 4.3%) i/s -     15.891M in   5.022481s
 
 Comparison:
-           String#+@:  7836759.4 i/s
-          String#dup:  4345956.7 i/s - 1.80x  (± 0.00) slower
+           String#+@:  6494186.4 i/s
+          String#dup:  3169903.4 i/s - 2.05x  (± 0.00) slower
 
 $ ruby -v code/string/end-string-checking-match-vs-end_with.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-           String#=~   145.801k i/100ms
-       String#match?   321.739k i/100ms
-    String#end_with?   472.505k i/100ms
+           String#=~   113.001k i/100ms
+       String#match?   251.477k i/100ms
+    String#end_with?   332.627k i/100ms
 Calculating -------------------------------------
-           String#=~      1.452M (± 0.6%) i/s -      7.290M in   5.019251s
-       String#match?      3.219M (± 0.1%) i/s -     16.409M in   5.097401s
-    String#end_with?      4.720M (± 0.3%) i/s -     23.625M in   5.005064s
+           String#=~      1.093M (± 4.9%) i/s -      5.537M in   5.080528s
+       String#match?      2.427M (± 4.5%) i/s -     12.322M in   5.088293s
+    String#end_with?      3.384M (± 6.2%) i/s -     16.964M in   5.033364s
 
 Comparison:
-    String#end_with?:  4720314.0 i/s
-       String#match?:  3219032.9 i/s - 1.47x  (± 0.00) slower
-           String#=~:  1452465.5 i/s - 3.25x  (± 0.00) slower
+    String#end_with?:  3384003.1 i/s
+       String#match?:  2426629.1 i/s - 1.39x  (± 0.00) slower
+           String#=~:  1092539.6 i/s - 3.10x  (± 0.00) slower
 
 $ ruby -v code/string/gsub-vs-sub.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-         String#gsub    77.967k i/100ms
-          String#sub   107.728k i/100ms
+         String#gsub    63.394k i/100ms
+          String#sub    82.009k i/100ms
 String#dup["string"]=
-                       122.215k i/100ms
+                       107.088k i/100ms
 Calculating -------------------------------------
-         String#gsub    788.950k (± 0.2%) i/s -      3.976M in   5.040034s
-          String#sub      1.092M (± 1.3%) i/s -      5.494M in   5.030112s
+         String#gsub    653.459k (± 4.5%) i/s -      3.296M in   5.055309s
+          String#sub    824.829k (± 5.5%) i/s -      4.182M in   5.086197s
 String#dup["string"]=
-                          1.235M (± 2.6%) i/s -      6.233M in   5.049158s
+                          1.101M (± 4.5%) i/s -      5.569M in   5.066568s
 
 Comparison:
-String#dup["string"]=:  1235286.9 i/s
-          String#sub:  1092421.3 i/s - 1.13x  (± 0.00) slower
-         String#gsub:   788949.9 i/s - 1.57x  (± 0.00) slower
+String#dup["string"]=:  1101372.5 i/s
+          String#sub:   824829.3 i/s - 1.34x  (± 0.00) slower
+         String#gsub:   653458.8 i/s - 1.69x  (± 0.00) slower
 
 $ ruby -v code/string/gsub-vs-tr.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-         String#gsub    71.249k i/100ms
-           String#tr   282.260k i/100ms
+         String#gsub    54.258k i/100ms
+           String#tr   201.212k i/100ms
 Calculating -------------------------------------
-         String#gsub    711.829k (± 0.4%) i/s -      3.562M in   5.004727s
-           String#tr      2.819M (± 1.7%) i/s -     14.395M in   5.107558s
+         String#gsub    549.022k (± 5.9%) i/s -      2.767M in   5.057935s
+           String#tr      2.134M (± 4.2%) i/s -     10.664M in   5.006494s
 
 Comparison:
-           String#tr:  2819342.6 i/s
-         String#gsub:   711828.8 i/s - 3.96x  (± 0.00) slower
+           String#tr:  2133998.4 i/s
+         String#gsub:   549022.4 i/s - 3.89x  (± 0.00) slower
 
 $ ruby -v code/string/mutable_vs_immutable_strings.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-      Without Freeze   962.235k i/100ms
-         With Freeze     1.410M i/100ms
+      Without Freeze   749.595k i/100ms
+         With Freeze     1.194M i/100ms
 Calculating -------------------------------------
-      Without Freeze      9.616M (± 0.3%) i/s -     48.112M in   5.003168s
-         With Freeze     14.084M (± 0.1%) i/s -     70.518M in   5.006982s
+      Without Freeze      7.184M (± 5.0%) i/s -     35.981M in   5.022554s
+         With Freeze     11.406M (± 5.3%) i/s -     57.302M in   5.038296s
 
 Comparison:
-         With Freeze: 14084041.4 i/s
-      Without Freeze:  9616362.6 i/s - 1.46x  (± 0.00) slower
+         With Freeze: 11406159.6 i/s
+      Without Freeze:  7183547.5 i/s - 1.59x  (± 0.00) slower
 
 $ ruby -v code/string/remove-extra-spaces-or-other-chars.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
- String#gsub/regex+/     2.603k i/100ms
-      String#squeeze   129.240k i/100ms
+ String#gsub/regex+/     1.953k i/100ms
+      String#squeeze    98.545k i/100ms
 Calculating -------------------------------------
- String#gsub/regex+/     26.036k (± 0.1%) i/s -    132.753k in   5.098746s
-      String#squeeze      1.288M (± 0.3%) i/s -      6.462M in   5.017491s
+ String#gsub/regex+/     18.579k (± 3.5%) i/s -     93.744k in   5.051711s
+      String#squeeze      1.005M (± 4.8%) i/s -      5.026M in   5.012654s
 
 Comparison:
-      String#squeeze:  1287909.5 i/s
- String#gsub/regex+/:    26036.5 i/s - 49.47x  (± 0.00) slower
+      String#squeeze:  1004956.6 i/s
+ String#gsub/regex+/:    18579.3 i/s - 54.09x  (± 0.00) slower
 
 $ ruby -v code/string/start-string-checking-match-vs-start_with.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-           String#=~   212.111k i/100ms
-       String#match?   596.555k i/100ms
-  String#start_with?   680.525k i/100ms
+           String#=~   160.604k i/100ms
+       String#match?   429.885k i/100ms
+  String#start_with?   500.062k i/100ms
 Calculating -------------------------------------
-           String#=~      2.118M (± 0.2%) i/s -     10.606M in   5.008405s
-       String#match?      5.966M (± 0.1%) i/s -     30.424M in   5.099291s
-  String#start_with?      6.794M (± 0.2%) i/s -     34.026M in   5.008597s
+           String#=~      1.686M (± 4.2%) i/s -      8.512M in   5.057772s
+       String#match?      4.375M (± 4.6%) i/s -     21.924M in   5.023229s
+  String#start_with?      5.167M (± 5.7%) i/s -     26.003M in   5.049429s
 
 Comparison:
-  String#start_with?:  6793587.2 i/s
-       String#match?:  5966380.7 i/s - 1.14x  (± 0.00) slower
-           String#=~:  2117560.0 i/s - 3.21x  (± 0.00) slower
+  String#start_with?:  5166580.9 i/s
+       String#match?:  4374619.0 i/s - 1.18x  (± 0.00) slower
+           String#=~:  1686019.0 i/s - 3.06x  (± 0.00) slower
 
 $ ruby -v code/string/start_with-vs-substring-==.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-  String#start_with?   178.778k i/100ms
-    String#[0, n] ==    68.889k i/100ms
-   String#[RANGE] ==    62.708k i/100ms
-   String#[0...n] ==    34.618k i/100ms
+  String#start_with?   141.859k i/100ms
+    String#[0, n] ==    45.795k i/100ms
+   String#[RANGE] ==    40.784k i/100ms
+   String#[0...n] ==    25.297k i/100ms
 Calculating -------------------------------------
-  String#start_with?      1.763M (± 1.5%) i/s -      8.939M in   5.071894s
-    String#[0, n] ==    686.601k (± 1.7%) i/s -      3.444M in   5.018183s
-   String#[RANGE] ==    626.263k (± 0.3%) i/s -      3.135M in   5.006587s
-   String#[0...n] ==    340.948k (± 0.2%) i/s -      1.731M in   5.076741s
+  String#start_with?      1.329M (± 5.2%) i/s -      6.667M in   5.029988s
+    String#[0, n] ==    459.591k (± 4.9%) i/s -      2.336M in   5.094086s
+   String#[RANGE] ==    409.087k (± 4.4%) i/s -      2.080M in   5.094845s
+   String#[0...n] ==    261.145k (± 5.5%) i/s -      1.315M in   5.053079s
 
 Comparison:
-  String#start_with?:  1762850.0 i/s
-    String#[0, n] ==:   686601.0 i/s - 2.57x  (± 0.00) slower
-   String#[RANGE] ==:   626262.6 i/s - 2.81x  (± 0.00) slower
-   String#[0...n] ==:   340948.0 i/s - 5.17x  (± 0.00) slower
+  String#start_with?:  1329127.5 i/s
+    String#[0, n] ==:   459591.4 i/s - 2.89x  (± 0.00) slower
+   String#[RANGE] ==:   409087.2 i/s - 3.25x  (± 0.00) slower
+   String#[0...n] ==:   261145.2 i/s - 5.09x  (± 0.00) slower
 
 $ ruby -v code/string/sub!-vs-gsub!-vs-[]=.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-  String#['string']=   138.148k i/100ms
- String#sub!'string'    90.867k i/100ms
-String#gsub!'string'    54.440k i/100ms
-  String#[/regexp/]=   106.693k i/100ms
- String#sub!/regexp/    80.923k i/100ms
-String#gsub!/regexp/    45.672k i/100ms
+  String#['string']=   103.980k i/100ms
+ String#sub!'string'    75.125k i/100ms
+String#gsub!'string'    44.580k i/100ms
+  String#[/regexp/]=    89.394k i/100ms
+ String#sub!/regexp/    70.937k i/100ms
+String#gsub!/regexp/    36.332k i/100ms
 Calculating -------------------------------------
-  String#['string']=      1.376M (± 2.7%) i/s -      6.907M in   5.024890s
- String#sub!'string'    913.726k (± 0.1%) i/s -      4.634M in   5.071787s
-String#gsub!'string'    565.367k (± 0.4%) i/s -      2.831M in   5.007252s
-  String#[/regexp/]=      1.060M (± 0.1%) i/s -      5.335M in   5.031464s
- String#sub!/regexp/    864.639k (± 0.2%) i/s -      4.370M in   5.053966s
-String#gsub!/regexp/    444.828k (± 3.0%) i/s -      2.238M in   5.035825s
+  String#['string']=      1.022M (± 4.2%) i/s -      5.199M in   5.095767s
+ String#sub!'string'    748.973k (± 4.8%) i/s -      3.756M in   5.027538s
+String#gsub!'string'    453.165k (± 5.1%) i/s -      2.274M in   5.030565s
+  String#[/regexp/]=    967.286k (± 4.0%) i/s -      4.917M in   5.091104s
+ String#sub!/regexp/    709.438k (± 4.7%) i/s -      3.547M in   5.010886s
+String#gsub!/regexp/    371.693k (± 3.5%) i/s -      1.889M in   5.089374s
 
 Comparison:
-  String#['string']=:  1375730.3 i/s
-  String#[/regexp/]=:  1060259.8 i/s - 1.30x  (± 0.00) slower
- String#sub!'string':   913726.1 i/s - 1.51x  (± 0.00) slower
- String#sub!/regexp/:   864638.6 i/s - 1.59x  (± 0.00) slower
-String#gsub!'string':   565366.9 i/s - 2.43x  (± 0.00) slower
-String#gsub!/regexp/:   444828.1 i/s - 3.09x  (± 0.00) slower
+  String#['string']=:  1022125.8 i/s
+  String#[/regexp/]=:   967286.4 i/s - same-ish: difference falls within error
+ String#sub!'string':   748973.1 i/s - 1.36x  (± 0.00) slower
+ String#sub!/regexp/:   709438.5 i/s - 1.44x  (± 0.00) slower
+String#gsub!'string':   453164.6 i/s - 2.26x  (± 0.00) slower
+String#gsub!/regexp/:   371693.3 i/s - 2.75x  (± 0.00) slower
 
 $ ruby -v code/string/sub-vs-chomp-vs-delete_suffix.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-          String#sub   116.731k i/100ms
-        String#chomp   429.521k i/100ms
-String#delete_suffix   480.961k i/100ms
+          String#sub    91.062k i/100ms
+        String#chomp   334.181k i/100ms
+String#delete_suffix   344.085k i/100ms
 Calculating -------------------------------------
-          String#sub      1.178M (± 1.3%) i/s -      5.953M in   5.053931s
-        String#chomp      4.294M (± 0.1%) i/s -     21.476M in   5.001774s
-String#delete_suffix      4.799M (± 0.4%) i/s -     24.048M in   5.010913s
+          String#sub    937.475k (± 5.0%) i/s -      4.735M in   5.063666s
+        String#chomp      3.160M (± 4.5%) i/s -     16.041M in   5.087398s
+String#delete_suffix      3.348M (± 4.2%) i/s -     16.860M in   5.045659s
 
 Comparison:
-String#delete_suffix:  4799209.2 i/s
-        String#chomp:  4293692.2 i/s - 1.12x  (± 0.00) slower
-          String#sub:  1178160.1 i/s - 4.07x  (± 0.00) slower
+String#delete_suffix:  3347829.6 i/s
+        String#chomp:  3159518.7 i/s - same-ish: difference falls within error
+          String#sub:   937474.9 i/s - 3.57x  (± 0.00) slower
 
 $ ruby -v code/string/sub-vs-delete_prefix.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-String#delete_prefix   475.976k i/100ms
-          String#sub   112.027k i/100ms
+String#delete_prefix   330.802k i/100ms
+          String#sub    90.627k i/100ms
 Calculating -------------------------------------
-String#delete_prefix      4.765M (± 0.1%) i/s -     24.275M in   5.094177s
-          String#sub      1.189M (± 1.2%) i/s -      6.049M in   5.088547s
+String#delete_prefix      3.341M (± 4.3%) i/s -     16.871M in   5.059936s
+          String#sub    939.595k (± 3.9%) i/s -      4.713M in   5.023251s
 
 Comparison:
-String#delete_prefix:  4765206.7 i/s
-          String#sub:  1189006.6 i/s - 4.01x  (± 0.00) slower
+String#delete_prefix:  3340578.8 i/s
+          String#sub:   939595.2 i/s - 3.56x  (± 0.00) slower
 
 $ ruby -v code/string/unpack1-vs-unpack[0].rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-      String#unpack1   462.175k i/100ms
-    String#unpack[0]   353.111k i/100ms
+      String#unpack1   344.681k i/100ms
+    String#unpack[0]   267.141k i/100ms
 Calculating -------------------------------------
-      String#unpack1      4.626M (± 0.3%) i/s -     23.571M in   5.095682s
-    String#unpack[0]      3.535M (± 0.1%) i/s -     18.009M in   5.094405s
+      String#unpack1      3.636M (± 4.5%) i/s -     18.268M in   5.033979s
+    String#unpack[0]      2.759M (± 4.7%) i/s -     13.891M in   5.046637s
 
 Comparison:
-      String#unpack1:  4625711.8 i/s
-    String#unpack[0]:  3534989.9 i/s - 1.31x  (± 0.00) slower
+      String#unpack1:  3636254.5 i/s
+    String#unpack[0]:  2758950.3 i/s - 1.32x  (± 0.00) slower
 
 $ ruby -v code/time/iso8601-vs-parse.rb
 ruby 3.1.3p185 (2022-11-24 revision 1a6b16756e) [x86_64-linux]
 Warming up --------------------------------------
-        Time.iso8601    21.386k i/100ms
-          Time.parse     7.557k i/100ms
+        Time.iso8601    17.131k i/100ms
+          Time.parse     5.569k i/100ms
 Calculating -------------------------------------
-        Time.iso8601    218.571k (± 2.0%) i/s -      1.112M in   5.090196s
-          Time.parse     75.660k (± 0.2%) i/s -    385.407k in   5.093946s
+        Time.iso8601    168.389k (± 5.3%) i/s -    856.550k in   5.101101s
+          Time.parse     55.458k (± 4.8%) i/s -    278.450k in   5.032870s
 
 Comparison:
-        Time.iso8601:   218570.6 i/s
-          Time.parse:    75660.0 i/s - 2.89x  (± 0.00) slower
+        Time.iso8601:   168389.0 i/s
+          Time.parse:    55458.4 i/s - 3.04x  (± 0.00) slower
 
